@@ -1,0 +1,57 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 21.5px 21.5px;
+}
+
+.imagem__produto{
+    width: 200px;
+    height: 200px;
+}
+
+.home__produtos__anuncio{
+    width: 75%;
+    height: 20%;
+    border-radius: 15px;
+
+}
+
+.home__produtos__lista{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  /* Estilo para os itens da lista */
+  .home__produtos__produto {
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #000000;
+    text-align: center;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.home__produtos__produto__link{
+    text-decoration: none;
+    color: #000000;
+}
+
+.home__produtos__produto:hover{
+    background-color: #F1F6F9; 
+}

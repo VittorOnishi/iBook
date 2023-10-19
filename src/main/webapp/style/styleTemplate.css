@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    box-sizing: border-box;
+    height: 100vh; 
+    /* height: 100vh; */
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.cabecalho{
+    padding: 2% 2% 1% 5%;
+    background-color:#537FE7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo__site{
+    font-family: 'Krona One', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+
+}
+
+.barra_pesquisa{
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    font-family: 'Krona One', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000000;
+    border: none;
+    padding: 5px 30px;
+}
+
+.botao__pesquisar{
+    border-radius: 20px;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+}
+
+.botao__pesquisar__lupa{
+    width: 20px;
+    height: 20px;
+}
+
+.cabecalho__menu{
+    display: flex;
+    gap: 50px;
+}
+
+.cabecalho__menu__link{
+    font-family: 'Krona One', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.cabecalho__menu__icones{
+    width: 35px;
+    height: 35px;
+}
+
+.link__voltar{
+    justify-content: center; 
+    width: 30px;
+    height: 5px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.icone__voltar{
+    height: 30px;
+    width: 30px;
+}   
+
+.cabecalho__menu__link{
+    font-family: 'Krona One', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px 5px;
+    border-radius: 15px;
+}
+
+.rodape{
+   padding: 10px 21.5px;
+    color: #000000;
+    background-color: #537FE7;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.cabecalho__menu__link:hover{
+    background-color: #4E4FEB; 
+}

@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    box-sizing: border-box;
+    /* height: 100vh; */
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.cabecalho{
+    padding: 2% 2% 1% 5%;
+    background-color:#537FE7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulo__site{
+    font-family: 'Krona One', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+
+}
+
+.barra_pesquisa{
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    font-family: 'Krona One', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 30px;
+}
+
+.botao__pesquisar{
+    border-radius: 20px;
+    width: 50px;
+    height: 30px;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+}
+
+.butao__pesquisar__lupa{
+    width: 20px;
+    height: 20px;
+}
+
+.cabecalho__menu{
+    display: flex;
+    gap: 50px;
+}
+
+.produto__link__voltar{
+    justify-content: center; 
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 21.5px 21.5px;
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cabecalho__menu__icones{
+    width: 35px;
+    height: 35px;
+}
+
+.produto__icone__voltar{
+    height: 30px;
+    width: 30px;
+}
+
+.cabecalho__menu__link{
+    font-family: 'Krona One', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.compras__lista__produtos{
+    padding: 2% 2% 1% 5%;
+    width: 95%;
+}
+
+.compras__lista__produtos__header{
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: left;
+    padding: 25px 40px;
+}
+
+.compras__lista__produtos__produto{
+    display: flex;
+    justify-content: space-around;
+    background-color: #FFFFFF;
+    border: 1px solid #000000; 
+    color:#000000;
+    padding: 15px 15px;
+    gap: 30px;
+    font-size: 17px;
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.compras__lista__produtos__produto__descricao{
+    display: flex;
+    flex-direction: column;
+    color:#000000;
+    padding: 5px 5px;
+    gap: 30px;
+}
+
+.imagem__produto{
+    width: 200px;
+    height: 200px;
+    
+}
+
+.compras__lista__produtos__produto__acoes{
+    display: flex;
+    padding: 25px 40px;
+    gap: 16px;
+    border-radius: 15px;
+    flex-direction: column;
+}
+
+.compras__lista__produtos__produto__comprar__novamente{
+    background-color: #537FE7;
+    width: 200px;
+    height: 10px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 21.5px 21.5px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.compras__lista__produtos__produto__ver__compra{
+    background-color: #D8D9DA;
+    justify-content: center;
+    display: flex;
+    width: 200px;
+    height: 10px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 21.5px 21.5px;
+    text-decoration: none;
+    color: #537FE7;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.compras__lista__produtos__produto__trocar__produto{
+    background-color: #D8D9DA;
+    justify-content: center;
+    display: flex;
+    width: 200px;
+    height: 10px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 21.5px 21.5px;
+    text-decoration: none;
+    color: #537FE7;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.compras__lista__produtos__produto__comprar__novamente:hover{
+    background-color: #4E4FEB; 
+}
+
+.compras__lista__produtos__produto__trocar__produto:hover{
+     background-color: #9BABB8; 
+}
+
+.compras__lista__produtos__produto__ver__compra:hover{
+    background-color: #9BABB8; 
+}
+
+/* .compras__lista__produtos__produto__titulo__destaque{
+    
+} */
+
+.rodape{
+    padding: 10px 21.5px;
+    color: #000000;
+    background-color: #537FE7;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 400;
+}
