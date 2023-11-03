@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,9 @@ import br.com.iBook.dominio.EntidadeDominio;
 import br.com.iBook.dominio.Estado;
 import br.com.iBook.dominio.Item;
 import br.com.iBook.dominio.Livro;
+import br.com.iBook.dominio.Login;
 import br.com.iBook.dominio.Pedido;
+import br.com.iBook.dominio.Usuario;
 
 public class PedidoDAO extends AbstractDAO implements IDAO {
 
@@ -141,7 +142,48 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 
 	@Override
 	public void alterar(EntidadeDominio entidade) throws SQLException {
-		// TODO Auto-generated method stub
+		Pedido pedido = (Pedido) entidade;
+		StringBuilder sql = new StringBuilder();
+		PreparedStatement st = null;
+
+		con.setAutoCommit(false);
+
+		sql.append("UPDATE itens_do_pedido SET IDP_STATUS = ? WHERE IDP_PED_ID = ? ");
+		
+		if(pedido.getUsuario() == null) {
+        	sql.append("AND IDP_STATUS = 'ENTREGUE'; ");
+		}
+		
+		try {
+			
+			st = con.prepareStatement(sql.toString());
+			
+				st.setString(1, pedido.getItem().getStatusPedido());
+				st.setInt(2, pedido.getId());
+				st.executeUpdate();
+			
+				if(pedido.getItem().getStatusPedido().equals("TROCA REALIZADA")) {
+					CupomDAO cpnd = new CupomDAO(con);
+					
+					cpnd.salvar(pedido);
+				}
+				
+				con.commit();	
+				
+		}catch (Exception e) {
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			e.printStackTrace();
+		} finally {
+			try {
+				st.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 
 	}
 
@@ -152,6 +194,8 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 		Endereco endereco = null;
 		Cidade cidade = null;
 		Estado estado = null;
+		Usuario usuario = null;
+		Login login = null;
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -160,8 +204,8 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 
 		StringBuilder sql = new StringBuilder();
 
-		sql.append("SELECT ped_id, ped_data, ped_valor, end_logradouro, ");
-		sql.append("end_numero, end_bairro, end_cidade, end_estado FROM pedidos ");
+		sql.append("SELECT ped_id, ped_data, ped_valor, ped_frete_valor, end_logradouro, usu_cpf, ");
+		sql.append("usu_nome, usu_id, usu_cpf, usu_email, end_numero, end_bairro, end_cidade, end_estado FROM pedidos ");
 		sql.append("INNER JOIN enderecos on ped_end_id = end_id ");
 		sql.append("INNER JOIN USUARIOS on usu_id = ped_usu_id ");
 		
@@ -205,14 +249,23 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 				endereco = new Endereco(rs.getString("end_logradouro"), 
 										rs.getString("end_numero"),
 										rs.getString("end_bairro"),
+										rs.getBigDecimal("ped_frete_valor"),
 										cidade
 										);
+				
+				login = new Login(rs.getString("usu_email"));
+				
+				usuario = new Usuario(rs.getInt("usu_id"), 
+									  rs.getString("usu_nome"),
+									  rs.getString("usu_cpf"),
+									  login);
 				
 				pedido = new Pedido(rs.getInt("ped_id"), 
 									rs.getDate("ped_data").toLocalDate(),
 									rs.getBigDecimal("ped_valor"),
-									endereco);
-				
+									endereco,
+									usuario);
+																																																																																																																			
 				for(Item item : consultarItensDoPedido(pedido)) {
 					
 					pedido.setListaItens(item);
@@ -235,7 +288,7 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 	}
 	
 	
-	public List<Item> consultarItensDoPedido(Pedido pedido ) throws SQLException {
+	public List<Item> consultarItensDoPedido(Pedido pedido) throws SQLException {
 		// TODO Auto-generated method stub
 		Livro livro = null;
 		Item item = null;
@@ -243,12 +296,12 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 		
 		PreparedStatement st = null;
 		ResultSet rs = null;
-
+		
 		ArrayList<Item> listaDeItens = new ArrayList<>();
-
+		
 		StringBuilder sql = new StringBuilder();
 
-		sql.append("SELECT lvr_id, lvr_titulo, lvr_cod_image, idp_qtde_produtos, ");
+		sql.append("SELECT idp_id, lvr_id, lvr_titulo, lvr_cod_image, idp_qtde_produtos, ");
 		sql.append("idp_valor, idp_status FROM itens_do_pedido ");
 		sql.append("INNER JOIN LIVROS on lvr_id = idp_lvr_id ");
 		sql.append("WHERE idp_ped_id = ?");
@@ -268,7 +321,8 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 						          rs.getString("lvr_titulo"), 
 						          rs.getString("lvr_cod_image"));
 				
-				item = new Item(rs.getInt("idp_qtde_produtos"), 
+				item = new Item(rs.getInt("idp_id"),
+								rs.getInt("idp_qtde_produtos"), 
 								rs.getBigDecimal("idp_valor"),
 								rs.getString("idp_status"),
 								livro);

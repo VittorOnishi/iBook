@@ -43,12 +43,24 @@ public class Endereco extends EntidadeDominio{
 	public Endereco( String logradouro, 
 					 String numero,
 					 String bairro,
+					 BigDecimal valorFrete,
 					 Cidade cidade) {
 		setLogradouro(logradouro);
 		setNumero(numero);
 		setBairro(bairro);
+		this.valorFrete = valorFrete;
 		setCidade(cidade);
 		}
+	
+	public Endereco( String logradouro, 
+			 String numero,
+			 String bairro,
+			 Cidade cidade) {
+		setLogradouro(logradouro);
+		setNumero(numero);
+		setBairro(bairro);
+		setCidade(cidade);
+	}
 	
 	public Endereco() {
 	}

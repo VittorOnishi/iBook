@@ -37,7 +37,7 @@
         </nav>  
     </header>
     
-    <a class="link__voltar" href="/iBook/controller?acao=ExibeDadosUsuario&id=${EntidadeObjeto.id}	">
+    <a class="link__voltar" href="/iBook/controller?acao=PaginaInicial">
         <img class="icone__voltar" src="./assets/botaoVoltar.png"> Voltar
     </a>
     

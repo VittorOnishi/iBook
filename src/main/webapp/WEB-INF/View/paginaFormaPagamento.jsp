@@ -61,7 +61,7 @@
                     <a class="pagamento__adiciona__metodo" href="/iBook/controller?acao=AdicionarCartao">
                         <img class="imagem__adicionar" src="./assets/adicionar.png" alt="add"> Adicionar método de pagamento
                     </a>
-                <a class="pagamento__adiciona__cupom" href="">
+                <a class="pagamento__adiciona__cupom" href="/iBook/controller?acao=ConsultarCupons&id=${usuarioLogado.id}">
                     <img class="imagem__adicionar" src="./assets/adicionar.png" alt="add"> Adicionar cupom de desconto
                     </a>
                     </div>
@@ -79,11 +79,16 @@
 							value="${endereco.valorFrete}" scope="page" />
 				 	</c:if>
 				 </c:forEach>
+				 
+				 <c:set var="valorCupons" value="0" scope="page" />
+					<c:forEach items="${CuponsSelecionados}" var="cupons">
+							<c:set var="valorCupons" value="${valorCupons + cupons.desconto}" scope="page" />
+					</c:forEach>
 				
 				<input type="hidden" id="pedidoEnderecoId" name="pedidoEnderecoId" value="${pedidoEnderecoId}">
-				<input type="hidden" id="valorProdutos" name="valorProdutos" value="${valorProdutos}">
+				<input type="hidden" id="valorProdutos" name="valorProdutos" value="${valorProdutos - valorCupons}">
 				<input type="hidden" id="valorFrete" name="valorFrete" value="${valorFrete}">
-				<input type="hidden" id="valorTotal" name="valorTotal" value="${valorTotal}">
+				<!--<input type="hidden" id="valorTotal" name="valorTotal" value="${valorTotal}">-->
 				<input type="hidden" id="idUsuario" name="idUsuario" value="${usuarioLogado.id}">
                 <input class="pagamento__selecao__confirmar" id="acao" name="acao" type="submit" value="Confirmar pagamento">
 
@@ -100,6 +105,7 @@
             </p>
 			
 			<c:forEach items="${Itens}" var="item">
+			
             <p class="resumo__compra__produto">
               <strong>Produto:</strong> ${item.livro.titulo} - ${item.qtdeProdutos}X 
             </p>
@@ -113,13 +119,26 @@
      			<strong>Valor itens:</strong> R$ ${valorProdutos}
             </p>
             
-            <c:set var="valorTotal"
-						value="${valorProdutos + valorFrete}" scope="page" />
-			
             <p class="resumo__compra__quantidade">
-     			<strong>Valor total: R$ ${valorTotal}</strong>
+     			<strong>Desconto:</strong> R$ ${valorCupons}
             </p>
             
+            <c:set var="valorTotal" value="${valorProdutos + valorFrete - valorCupons}" scope="page" />
+            
+            <c:choose>
+            
+            <c:when test="${valorTotal <= 0}">
+	            <p class="resumo__compra__quantidade">
+	     			<strong>Valor total: R$ 0.00</strong>
+	            </p>
+            </c:when>
+            
+            <c:otherwise>
+				<p class="resumo__compra__quantidade">
+	     			<strong>Valor total: R$ ${valorTotal}</strong>
+	            </p>
+            </c:otherwise>
+            </c:choose>
         </section>
 
     </main>

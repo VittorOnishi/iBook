@@ -86,181 +86,166 @@
 						placeholder="Confirmar senha" required>
 
 				</div>
-				
+
 				<div class="cliente__cadastro__informacoes__cartao">
 
 					<h2 class="cliente__cadastro__titulo">CARTAO DE CRÉDITO</h2>
-					
-					<input class="cliente__cadastro__campos" type="text" name="nrCartao" id="nrCartao" placeholder="Numero do cartão" required>
-					
-					<select class="cliente__cadastro__select" id="bandeiraCartao" name="bandeiraCartao" required>
-						<option value="" disabled selected>Bandeira </option>
-						<c:forEach items="${EntidadeLista}" var="bandeiras">
-						<option value="${bandeiras.id}">${bandeiras.bandeira}</option>
-						</c:forEach>
-					</select> 
-					
+
 					<input class="cliente__cadastro__campos" type="text"
-						name="nomeCartao" id="nomeCartao"
-						placeholder="Nome do portador" required> 
-						
-						<input class="cliente__cadastro__campos" type="text" name="codigoSegCartao" id="codigoSegCartao"
-						placeholder="Codigo de segurança" required> 
-						
+						name="nrCartao" id="nrCartao" placeholder="Numero do cartão"
+						required> <select class="cliente__cadastro__select"
+						id="bandeiraCartao" name="bandeiraCartao" required>
+						<option value="" disabled selected>Bandeira</option>
+						<c:forEach items="${EntidadeLista}" var="bandeiras">
+							<option value="${bandeiras.id}">${bandeiras.bandeira}</option>
+						</c:forEach>
+					</select> <input class="cliente__cadastro__campos" type="text"
+						name="nomeCartao" id="nomeCartao" placeholder="Nome do portador"
+						required> <input class="cliente__cadastro__campos"
+						type="text" name="codigoSegCartao" id="codigoSegCartao"
+						placeholder="Codigo de segurança" required>
+
+				</div>
+
 			</div>
-			
-			</div>
-			
+
 			<div class="cliente__cadastro__dados">
 				<div class="cliente__cadastro__informacoes__endereco">
 					<h2 class="cliente__cadastro__titulo">ENDEREÇO RESIDENCIAL</h2>
 
-					<select class="cliente__cadastro__select" name="tipoResidenciaResidencial"
-						id="tipoResidenciaResidencial" required>
+					<select class="cliente__cadastro__select"
+						name="tipoResidenciaResidencial" id="tipoResidenciaResidencial"
+						required>
 						<option value="" disabled selected>Tipo de residencia</option>
 						<option value="casa">Casa</option>
 						<option value="apartamento">Apartamento</option>
 
 					</select> <input class="cliente__cadastro__campos" type="text"
-						name="logradouroResidencial" id="logradouroResidencial" placeholder="Logradouro"
-						required> 
-						
-						
-						<select class="cliente__cadastro__select"
-						name="tipoLogradouroResidencial" id="tipoLogradouroResidencial" required>
+						name="logradouroResidencial" id="logradouroResidencial"
+						placeholder="Logradouro" required> <select
+						class="cliente__cadastro__select" name="tipoLogradouroResidencial"
+						id="tipoLogradouroResidencial" required>
 						<option value="" disabled selected>Tipo de logradouro</option>
 						<option value="estrada">Estrada</option>
 						<option value="rua">Rua</option>
-					</select> 
-					
-					<input class="cliente__cadastro__campos" type="text" name="numeroResidencial"
-						id="numeroResidencial" placeholder="Número" required> 
-						
-					<input class="cliente__cadastro__campos" type="text"
-						name="observacaoResidencial" id="observacaoResidencial" placeholder="Observação"
-						required> 
-						
-					<input class="cliente__cadastro__campos" type="text" name="bairroResidencial"
-						id="bairroResidencial" placeholder="Bairro" required> 
-						
-					<input class="cliente__cadastro__campos" type="text" name="cepResidencial" id="cepResidencial"
-						placeholder="CEP" pattern="\d{5}-\d{3}" required> 
-						
-					<input class="cliente__cadastro__campos" type="text" name="cidadeResidencial"
-						id="cidade" placeholder="Cidade" required> 
-						
-					<select class="cliente__cadastro__select" id="estadoResidencial" name="estadoResidencial"
-						required>
+					</select> <input class="cliente__cadastro__campos" type="text"
+						name="numeroResidencial" id="numeroResidencial"
+						placeholder="Número" required> <input
+						class="cliente__cadastro__campos" type="text"
+						name="observacaoResidencial" id="observacaoResidencial"
+						placeholder="Observação" required> <input
+						class="cliente__cadastro__campos" type="text"
+						name="bairroResidencial" id="bairroResidencial"
+						placeholder="Bairro" required> <input
+						class="cliente__cadastro__campos" type="text"
+						name="cepResidencial" id="cepResidencial" placeholder="CEP"
+						pattern="\d{5}-\d{3}" required> <input
+						class="cliente__cadastro__campos" type="text"
+						name="cidadeResidencial" id="cidade" placeholder="Cidade" required>
+
+					<select class="cliente__cadastro__select" id="estadoResidencial"
+						name="estadoResidencial" required>
 						<option value="" disabled selected>Selecione um estado</option>
 						<option value="AC">Acre</option>
-					<option value="AL">Alagoas</option>
-					<option value="AP">Amapá</option>
-					<option value="AM">Amazonas</option>
-					<option value="BA">Bahia</option>
-					<option value="CE">Ceará</option>
-					<option value="DF">Distrito Federal</option>
-					<option value="ES">Espirito Santo</option>
-					<option value="GO">Goiás</option>
-					<option value="MA">Maranhão</option>
-					<option value="MT">Mato Grosso</option>
-					<option value="MS">Mato Grosso do Sul</option>
-					<option value="MG">Minas Gerais</option>
-					<option value="PA">Pará</option>
-					<option value="PB">Paraíba</option>
-					<option value="PR">Paraná</option>
-					<option value="PE">Pernambuco</option>
-					<option value="PI">Piauí</option>
-					<option value="RJ">Rio de Janeiro</option>
-					<option value="RN">Rio Grande no Norte</option>
-					<option value="RS">Rio Grande do Sul</option>
-					<option value="RO">Rondônia</option>
-					<option value="RR">Roraima</option>
-					<option value="SC">Santa Catarina</option>
-					<option value="SP">Sâo Paulo</option>
-					<option value="SE">Sergipe</option>
-					<option value="TO">Tocantins</option>
-					</select> 
-					
-					<input class="cliente__cadastro__campos" type="text" name="paisResidencial"
-						id="paisResidencial" placeholder="País" required>
+						<option value="AL">Alagoas</option>
+						<option value="AP">Amapá</option>
+						<option value="AM">Amazonas</option>
+						<option value="BA">Bahia</option>
+						<option value="CE">Ceará</option>
+						<option value="DF">Distrito Federal</option>
+						<option value="ES">Espirito Santo</option>
+						<option value="GO">Goiás</option>
+						<option value="MA">Maranhão</option>
+						<option value="MT">Mato Grosso</option>
+						<option value="MS">Mato Grosso do Sul</option>
+						<option value="MG">Minas Gerais</option>
+						<option value="PA">Pará</option>
+						<option value="PB">Paraíba</option>
+						<option value="PR">Paraná</option>
+						<option value="PE">Pernambuco</option>
+						<option value="PI">Piauí</option>
+						<option value="RJ">Rio de Janeiro</option>
+						<option value="RN">Rio Grande no Norte</option>
+						<option value="RS">Rio Grande do Sul</option>
+						<option value="RO">Rondônia</option>
+						<option value="RR">Roraima</option>
+						<option value="SC">Santa Catarina</option>
+						<option value="SP">Sâo Paulo</option>
+						<option value="SE">Sergipe</option>
+						<option value="TO">Tocantins</option>
+					</select> <input class="cliente__cadastro__campos" type="text"
+						name="paisResidencial" id="paisResidencial" placeholder="País"
+						required>
 
 				</div>
-				
+
 				<div class="cliente__cadastro__informacoes__endereco">
 					<h2 class="cliente__cadastro__titulo">ENDEREÇO DE ENTREGA</h2>
 
-					<select class="cliente__cadastro__select" name="tipoResidenciaEntrega"
-						id="tipoResidenciaEntrega" required>
+					<select class="cliente__cadastro__select"
+						name="tipoResidenciaEntrega" id="tipoResidenciaEntrega" required>
 						<option disabled selected>Tipo de residencia</option>
 						<option value="casa">Casa</option>
 						<option value="apartamento">Apartamento</option>
 
 					</select> <input class="cliente__cadastro__campos" type="text"
-						name="logradouroEntrega" id="logradouroEntrega" placeholder="Logradouro"
-						required> 
-						
-						
-						<select class="cliente__cadastro__select"
-						name="tipoLogradouroEntrega" id="tipoLogradouroEntrega" required>
+						name="logradouroEntrega" id="logradouroEntrega"
+						placeholder="Logradouro" required> <select
+						class="cliente__cadastro__select" name="tipoLogradouroEntrega"
+						id="tipoLogradouroEntrega" required>
 						<option value="">Tipo de logradouro</option>
 						<option value="estrada">Estrada</option>
 						<option value="rua">Rua</option>
-					</select> 
-					
-					<input class="cliente__cadastro__campos" type="text" name="numeroEntrega"
-						id="numeroEntrega" placeholder="Número" required> 
-						
+					</select> <input class="cliente__cadastro__campos" type="text"
+						name="numeroEntrega" id="numeroEntrega" placeholder="Número"
+						required> <input class="cliente__cadastro__campos"
+						type="text" name="observacaoEntrega" id="observacaoEntrega"
+						placeholder="Observação" required> <input
+						class="cliente__cadastro__campos" type="text" name="bairroEntrega"
+						id="bairroEntrega" placeholder="Bairro" required> <input
+						class="cliente__cadastro__campos" type="text" name="cepEntrega"
+						id="cepEntrega" placeholder="CEP" pattern="\d{5}-\d{3}" required>
+
 					<input class="cliente__cadastro__campos" type="text"
-						name="observacaoEntrega" id="observacaoEntrega" placeholder="Observação"
-						required> 
-						
-					<input class="cliente__cadastro__campos" type="text" name="bairroEntrega"
-						id="bairroEntrega" placeholder="Bairro" required> 
-						
-					<input class="cliente__cadastro__campos" type="text" name="cepEntrega" id="cepEntrega"
-						placeholder="CEP" pattern="\d{5}-\d{3}" required> 
-						
-					<input class="cliente__cadastro__campos" type="text" name="cidadeEntrega"
-						id="cidade" placeholder="Cidade" required> 
-						
-					<select class="cliente__cadastro__select" id="estadoEntrega" name="estadoEntrega" required>
+						name="cidadeEntrega" id="cidade" placeholder="Cidade" required>
+
+					<select class="cliente__cadastro__select" id="estadoEntrega"
+						name="estadoEntrega" required>
 						<option value="" disabled selected>Selecione um estado</option>
 						<option value="AC">Acre</option>
-					<option value="AL">Alagoas</option>
-					<option value="AP">Amapá</option>
-					<option value="AM">Amazonas</option>
-					<option value="BA">Bahia</option>
-					<option value="CE">Ceará</option>
-					<option value="DF">Distrito Federal</option>
-					<option value="ES">Espirito Santo</option>
-					<option value="GO">Goiás</option>
-					<option value="MA">Maranhão</option>
-					<option value="MT">Mato Grosso</option>
-					<option value="MS">Mato Grosso do Sul</option>
-					<option value="MG">Minas Gerais</option>
-					<option value="PA">Pará</option>
-					<option value="PB">Paraíba</option>
-					<option value="PR">Paraná</option>
-					<option value="PE">Pernambuco</option>
-					<option value="PI">Piauí</option>
-					<option value="RJ">Rio de Janeiro</option>
-					<option value="RN">Rio Grande no Norte</option>
-					<option value="RS">Rio Grande do Sul</option>
-					<option value="RO">Rondônia</option>
-					<option value="RR">Roraima</option>
-					<option value="SC">Santa Catarina</option>
-					<option value="SP">São Paulo</option>
-					<option value="SE">Sergipe</option>
-					<option value="TO">Tocantins</option>
-					</select> 
-					
-					<input class="cliente__cadastro__campos" type="text" name="paisEntrega"
-						id="paisEntrega" placeholder="País" required>
+						<option value="AL">Alagoas</option>
+						<option value="AP">Amapá</option>
+						<option value="AM">Amazonas</option>
+						<option value="BA">Bahia</option>
+						<option value="CE">Ceará</option>
+						<option value="DF">Distrito Federal</option>
+						<option value="ES">Espirito Santo</option>
+						<option value="GO">Goiás</option>
+						<option value="MA">Maranhão</option>
+						<option value="MT">Mato Grosso</option>
+						<option value="MS">Mato Grosso do Sul</option>
+						<option value="MG">Minas Gerais</option>
+						<option value="PA">Pará</option>
+						<option value="PB">Paraíba</option>
+						<option value="PR">Paraná</option>
+						<option value="PE">Pernambuco</option>
+						<option value="PI">Piauí</option>
+						<option value="RJ">Rio de Janeiro</option>
+						<option value="RN">Rio Grande no Norte</option>
+						<option value="RS">Rio Grande do Sul</option>
+						<option value="RO">Rondônia</option>
+						<option value="RR">Roraima</option>
+						<option value="SC">Santa Catarina</option>
+						<option value="SP">São Paulo</option>
+						<option value="SE">Sergipe</option>
+						<option value="TO">Tocantins</option>
+					</select> <input class="cliente__cadastro__campos" type="text"
+						name="paisEntrega" id="paisEntrega" placeholder="País" required>
 
 				</div>
-				
+
 			</div>
-			
+
 			<div>
 				<input type="hidden" name="acao" value="CadastrarUsuario"> <input
 					class="cliente__cadastro__cadastrar" type="submit"

@@ -12,7 +12,9 @@ import javax.servlet.http.HttpSession;
 import br.com.iBook.dominio.CartaoDeCredito;
 import br.com.iBook.dominio.Endereco;
 import br.com.iBook.dominio.EntidadeDominio;
+import br.com.iBook.dominio.Item;
 import br.com.iBook.dominio.Livro;
+import br.com.iBook.dominio.Pedido;
 import br.com.iBook.dominio.Usuario;
 
 public class VhConsultarPorId implements IViewHelper {
@@ -30,6 +32,9 @@ public class VhConsultarPorId implements IViewHelper {
 		objects.put("Continuar", new Usuario());
 		objects.put("Perfil", new Usuario());
 		objects.put("ExibeDadosProduto", new Livro());
+		objects.put("VerItem", new Item());
+		objects.put("VerItensPedido", new Pedido());
+			
 	}
 	
 	@Override

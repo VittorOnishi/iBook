@@ -20,7 +20,7 @@ public class VhEndereco implements IViewHelper {
 	public EntidadeDominio getEntidade(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
 		
-	if(request.getParameter("acao").equals("CadastrarEndereco") || request.getParameter("acao").equals("CadastrarEndereco")) {
+	if(request.getParameter("acao").equals("AlterarEndereco") || request.getParameter("acao").equals("CadastrarEndereco")) {
 		
 		Pais pais = new Pais(request.getParameter("pais"));
 		

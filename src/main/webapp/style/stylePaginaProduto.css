@@ -49,7 +49,7 @@ body{
     border: none;
 }
 
-.butao__pesquisar__lupa{
+.botao__pesquisar__lupa{
     width: 20px;
     height: 20px;
 }
@@ -72,11 +72,8 @@ body{
 }
 
 .produto{
-    padding: 5% 15%;
-    display: flex;
+	padding: 5% 5%;
     align-items: center;
-    flex-direction: column;
-    gap: 80px;
 }
 
 .produto__imagem{
@@ -85,7 +82,7 @@ body{
 }
 
 .produto__venda{
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -203,15 +200,21 @@ body{
 }
 
 .produto__vitrine{
-	padding: 5% 10%;
+	padding: 5% 5% 5% 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 70px;
+    gap: 80px;
+}
+
+.produto__tabela__informacoes{
+    display: flex;
+    padding: 5% 5%;
+    align-items: center;
 }
 
 .tabela__livro {
-	border-collapse: collapse;
+  border-collapse: collapse;
   border: 1px solid #000000;
   border-radius: 15px;
   width: 100%;

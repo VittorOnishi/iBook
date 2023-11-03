@@ -47,7 +47,8 @@
         <a class="perfil__link" href=""><img class="perfil__imagem" src="./assets/localizacao.png" alt=""> <p>Endereços<br>Endereços vinculados à conta</p></a>
         <a class="perfil__link" href="/iBook/controller?acao=PaginaConsultaUsuarios"><img class="perfil__imagem" src="./assets/clientes.png" alt="Clientes"> <p>Clientes<br>Consultar cadastro de compradores</p></a>
          <a class="perfil__link" href="/iBook/controller?acao=PaginaConsultaVendas"><img class="perfil__imagem" src="./assets/vendas.png" alt="Vendas"> <p>Vendas<br>Consultar vendas realizadas</p></a>
-        <button class="perfil__link" type="submit"><img class="perfil__imagem" src="./assets/logout.png" alt=""> <p>Log out<br>Encerrar sessão</p></button>
+         <a class="perfil__link" href="/iBook/controller?acao=LogOut"><img class="perfil__imagem" src="./assets/logout.png" alt="LogOut"> <p>Log out<br>Encerrar sessão</p></a>
+       <!-- <button class="perfil__link" type="submit"><img class="perfil__imagem" src="./assets/logout.png" alt="LogOut"> <p>Log out<br>Encerrar sessão</p></button> -->
     </main>
     <footer class="rodape">
         <p>Desenvolvido por Vittor Onishi</p>

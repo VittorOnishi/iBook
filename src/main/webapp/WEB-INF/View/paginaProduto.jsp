@@ -24,7 +24,7 @@
             <input class="barra_pesquisa" type="text" id="numero"
             name="numero" placeholder="Buscar">
             <button class="botao__pesquisar" type="submit">
-                <img class="butao__pesquisar__lupa" src="./assets/pesquisar.png" alt="Pesquisar">
+                <img class="botao__pesquisar__lupa" src="./assets/pesquisar.png" alt="Pesquisar">
             </button>
         </form>
 
@@ -42,8 +42,7 @@
         <img class="icone__voltar" src="./assets/botaoVoltar.png"> Voltar
     </a>
 
-	<form action="${linkController}">    
-    <main class="produto">
+	<form action="${linkController}">     
 	<section class="produto__vitrine">
 	<div>
         <img class="produto__imagem" src="./assets/${EntidadeObjeto.codImagem}.png" alt="Imagem do produto">
@@ -88,7 +87,7 @@
          
         </div>
         </section>
-        
+
          <section class="produto__tabela__informacoes">
          
          <table class="tabela__livro">
@@ -153,11 +152,7 @@
 		        </tr>
 		    </tbody>
 		</table>
-         
          </section>
-        
-        
-    </main>
     </form>
     <footer class="rodape">
         <p>Desenvolvido por Vittor Onishi</p>

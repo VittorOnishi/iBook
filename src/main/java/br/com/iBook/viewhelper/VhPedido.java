@@ -9,12 +9,12 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import br.com.iBook.dominio.CarrinhoDeCompras;
 import br.com.iBook.dominio.CartaoDeCredito;
 import br.com.iBook.dominio.Endereco;
 import br.com.iBook.dominio.EntidadeDominio;
+import br.com.iBook.dominio.Item;
 import br.com.iBook.dominio.Pedido;
 import br.com.iBook.dominio.Usuario;
 
@@ -98,6 +98,49 @@ public class VhPedido implements IViewHelper {
 			
 			return pedido;
 		}
+	
+		if(request.getParameter("acao").equals("VerItensPedido")){	
+
+			pedido = new Pedido(Integer.valueOf(request.getParameter("idPedido")));
+
+			return pedido;
+			
+		}
+		
+		if(request.getParameter("acao").equals("SolicitarTrocaPedido")){	
+			
+			Item item = new Item(request.getParameter("statusPedido"));
+
+			pedido = new Pedido(Integer.valueOf(request.getParameter("idPedido")), item);
+
+			return pedido;
+			
+		}
+		
+		if(request.getParameter("acao").equals("AlterarStatusPedido")){	
+			
+			Usuario usuario = new Usuario(Integer.valueOf(request.getParameter("idCliente")));
+			
+			Item item = new Item(request.getParameter("statusPedido"));
+
+			pedido = new Pedido(Integer.valueOf(request.getParameter("idPedido")),
+								new BigDecimal(request.getParameter("valorPedido")),
+								item,
+								usuario);
+			
+			return pedido;
+					
+		}
+		
+		if(request.getParameter("acao").equals("AlterarStatus")) {
+			
+			Item item = new Item(Integer.valueOf(request.getParameter("idItem")), 
+		            			 request.getParameter("statusItem"));
+
+			pedido = new Pedido(Integer.valueOf(request.getParameter("idPedido")), item);
+			
+			return pedido;
+		}
 		
 		return null;
 	}
@@ -124,7 +167,8 @@ public class VhPedido implements IViewHelper {
 		
 		
 		if(request.getParameter("acao").equals("Confirmar endereco")||
-		   request.getParameter("acao").equals("CadastrarCartao")) {
+		   request.getParameter("acao").equals("CadastrarCartao")||
+		   request.getParameter("acao").equals("AdicionarCupom")) {
 			
 			Pedido pedido = new Pedido();
 			request.setAttribute("pedidoEnderecoId", pedido.getEndereco().getId());

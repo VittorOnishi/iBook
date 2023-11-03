@@ -39,22 +39,36 @@
         </nav> 
     </header>
     <main class="compras">
-
+	
+	
+        <c:choose>
+			<c:when test="${usuarioLogado.isAdmin == true}">
+            	<a class="link__voltar" href="/iBook/controller?acao=PaginaConsultaVendas">
+                	<img class="icone__voltar" src="./assets/botaoVoltar.png"> Voltar
+            	</a>
+            </c:when>
+            
+            <c:otherwise>
+            	<a class="link__voltar" href="/iBook/controller?acao=ConsultarPedido&id=110">
+                	<img class="icone__voltar" src="./assets/botaoVoltar.png"> Voltar
+            	</a>
+            </c:otherwise>
+            
+        </c:choose>
+	
     <section class="compras__lista">
-
-        <a class="link__voltar" href="/iBook/controller?acao=PaginaInicial">   
-            <img class="icone__voltar" src="./assets/botaoVoltar.png"> Voltar 
-        </a>
-
-        <table class="compras__lista__produtos">
-            <tr>
-                <th class="compras__lista__produtos__header">Itens</th>
-            </tr>
-            
-            <c:forEach items="${EntidadeObjeto.listaItens}" var="item">
-            <tr>
-            
-            <td class="compras__lista__produtos__produto">
+    		
+	<h2 class="compras__lista__produtos__header">Itens</h2>
+	
+    	   <c:choose>
+    		<c:when test="${usuarioLogado.isAdmin == true}">
+            	
+            	 
+		        <c:forEach items="${EntidadeObjeto.listaItens}" var="item">
+           
+           
+           <div class="compras__lista__produtos__produto">
+           
                 <img src="./assets/${item.livro.codImagem}.png" class="imagem__produto" alt="Imagem do produto">
 
                 <div class="compras__lista__produtos__produto__descricao">
@@ -73,7 +87,58 @@
                  
                 ${EntidadeObjeto.endereco.logradouro}, 
                 						${EntidadeObjeto.endereco.bairro},
-                						${EntidadeObjeto.endereco.cidade.descricao},
+                						${EntidadeObjeto.endereco.cidade.descricao} - 
+                						${EntidadeObjeto.endereco.cidade.estado.descricao}
+                						</p>
+                						
+                 <p><strong class="compras__lista__produtos__produto__titulo__destaque">
+                Status: </strong> ${item.statusPedido} </p>						
+                
+                <!-- <p><strong class="compras__lista__produtos__produto__titulo__destaque">
+                Previsão de chegada: 
+                </strong></p> -->
+                
+                </div>
+
+                <div class="compras__lista__produtos__produto__acoes">
+
+               	    <a class="compras__lista__produtos__produto__ver__compra" href="/iBook/controller?acao=VerItem&id=${item.id}">   
+                        Ver compra
+                    </a>
+                   
+                </div>
+			
+			</div>
+            </c:forEach>
+            
+			</c:when>
+			 
+			 <c:otherwise>
+			 
+			 <c:forEach items="${EntidadeObjeto.listaItens}" var="item">
+           
+           
+           <div class="compras__lista__produtos__produto">
+           
+                <img src="./assets/${item.livro.codImagem}.png" class="imagem__produto" alt="Imagem do produto">
+
+                <div class="compras__lista__produtos__produto__descricao">
+                <p class=>
+                    <strong class="compras__lista__produtos__produto__titulo__destaque">${item.livro.titulo}</strong>
+                </p>
+                
+                <p>R$ ${item.precoItem}</p>
+                
+                <p>${item.qtdeProdutos} X itens</p>
+                
+                
+                <p><strong class="compras__lista__produtos__produto__titulo__destaque">
+                Endereço de entrega:
+                </strong>
+                 
+                ${EntidadeObjeto.endereco.logradouro}, 
+                						${EntidadeObjeto.endereco.bairro},
+                						${EntidadeObjeto.endereco.cidade.descricao} - 
                 						${EntidadeObjeto.endereco.cidade.estado.descricao}
                 						</p>
                 						
@@ -90,24 +155,25 @@
                     <a class="compras__lista__produtos__produto__comprar__novamente" href="/iBook/controller?acao=ExibeDadosProduto&id=${item.livro.id}">   
                         Comprar novamente
                     </a>
-                    
-                    <c:if test="${usuarioLogado.isAdmin == true}">
-               		 <a class="compras__lista__produtos__produto__ver__compra" href="/iBook/controller?acao=VerItem">   
-                        Ver compra
-                    </a>
-                    </c:if> 
                      
-                    <a class="compras__lista__produtos__produto__trocar__produto" href="telaDeDevolucao.html">   
+                    <c:if test="${item.statusPedido == 'ENTREGUE'}">
+                    <form action="${linkController}">
+                    <input type="hidden" name="idPedido" id="idPedido" value="${EntidadeObjeto.id}">
+                    <input type="hidden" name="idItem" id="idItem" value="${item.id}">
+                    <input type="hidden" name="statusItem" id="statusItem" value="TROCA SOLICITADA">
+                    <button class="compras__lista__produtos__produto__trocar__produto" type="submit" name="acao" id="acao" value="SolicitarTrocaItem">   
                         Trocar produto
-                    </a>
+                    </button>
+                    </form>
+                    </c:if> 
                 </div>
-
-            </td>
-            </tr>
+			
+			</div>
             </c:forEach>
-
-        </table>
-
+            
+		    </c:otherwise>
+			 
+			 </c:choose>
     </section>
 
     </main>

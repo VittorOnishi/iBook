@@ -28,7 +28,7 @@
         <nav class="cabecalho__menu">
             <a class="cabecalho__menu__link" href="/iBook/controller?acao=Carrinho">
                 <img class="cabecalho__menu__icones" src="./assets/carrinho.png" alt="Carrinho"> Carrinho</a>
-            <a class="cabecalho__menu__link" href="/iBook/controller?acao=PaginaConsultaVendas&id=110">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=ConsultarPedido&id=110">
                 <img class="cabecalho__menu__icones" src="./assets/sacola.png" alt="Sacola">Compras</a>
             <a class="cabecalho__menu__link" href="/iBook/controller?acao=formLogin">
                     <img class="cabecalho__menu__icones" src="./assets/perfil.png" alt="Perfil">Perfil</a>
@@ -42,7 +42,7 @@
     
     <c:forEach items="${EntidadeDominio}" var="produto">
         <div class="home__produtos__produto"> 
-        <a class="home__produtos__produto__link" href="/iBook/controller?acao=ExibeDadosProduto&id=${produto.id}">
+        <a id="selecionarProduto" class="home__produtos__produto__link" href="/iBook/controller?acao=ExibeDadosProduto&id=${produto.id}">
             <img class="imagem__produto" src="<c:url value="/assets/${produto.codImagem}.png"/>" alt="Produto"/>
             <h3>${produto.titulo}</h3>
             <p>R$ ${produto.preco}</p>

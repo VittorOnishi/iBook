@@ -10,6 +10,7 @@
 .pedidos__lista__produtos{
     padding: 2% 2% 1% 5%;
     width: 95%;
+    gap: 100px;
 }
 
 .pedidos__lista__header{
@@ -31,11 +32,13 @@
 
 .pedidos__lista__informacoes{
     display: flex;
+    padding: 2% 2% 1% 5%;
     justify-content: space-around;
     border: 1px solid #000000; 
     color:#000000;
     padding: 15px 15px;
     gap: 30px;
+    margin-bottom: 20px;
     border-radius: 15px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -47,6 +50,7 @@
 }
 
 .buscar__pedido{
+	padding: 3% 3%;
     border-radius: 20px;
     width: 200px;
     height: 30px;
@@ -55,7 +59,6 @@
     font-weight: 600;
     color: #000000;
     border: none;
-    padding: 5px 30px;
     display: flex;
     gap: 10px;
 }
@@ -73,8 +76,8 @@
 }
 
 .botao__pesquisar__lupa{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .select__filtro__busca__pedido{
@@ -100,7 +103,7 @@
     flex-direction: column;
     color:#000000;
     padding: 5px 5px;
-    gap: 30px;
+    gap: 50px;
 }
 
 .pedidos__lista__informacoes__dados{
@@ -136,15 +139,16 @@
 
 .pedidos__lista__informacoes__acoes__trocar__pedido{
     background-color: #D8D9DA;
-    justify-content: center;
-    display: flex;
-    width: 200px;
-    height: 10px;
+    margin: 20px auto 0;
+    border: none;
+    cursor: pointer;
+	width: 240px;
+    height: 50px; 
     text-align: center;
     border-radius: 15px;
     font-size: 15px;
-    font-weight: 600;
-    padding: 21.5px 21.5px;
+    font-weight: 700;
+    padding: 5px 21.5px; /* Ajustei o padding vertical para melhor visualização */
     text-decoration: none;
     color: #537FE7;
     font-family: 'Montserrat', sans-serif;
@@ -170,4 +174,50 @@
     font-size: 24px;
     text-align: center;
     font-weight: 400;
+}
+.status__select{
+	border-radius: 20px;
+    width: 155px;
+    height: 40px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 5px 5px;
+    color: #000000;
+    border: 1px solid #D8D9DA;
+}
+.status__alterar{
+   /* background-color: #537FE7;
+    display: block;
+    margin: 20px auto 0;*/
+    border: none;
+    background-color: #FFFFFF;
+     padding: 10px 10px;
+   /* cursor: pointer;
+    text-align: center;
+    border-radius: 15px;
+    padding: 5px 21.5px; 
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;*/
+}
+.status__alterar:hover{
+   /* background-color: #D8D9DA;*/
+}
+.pedidos__lista__informacoes__acoes__ver__pedido{
+	background-color: #D8D9DA;
+    width: 200px;
+    height: 10px;
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 21.5px 21.5px;
+    text-decoration: none;
+    color: #537FE7;
+    font-family: 'Montserrat', sans-serif;
+}
+.pedidos__lista__informacoes__acoes__admin{
+	display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    gap: 10px;
 }

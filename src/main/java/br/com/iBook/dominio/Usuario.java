@@ -44,10 +44,15 @@ public class Usuario extends EntidadeDominio {
 		setId(id);
 	}
 
+	public Usuario(Integer id, String nome, String cpf, Login login) {
+		setId(id);
+		setNome(nome);
+		this.cpf = cpf;
+		this.login = login;
+	}
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
-
 	public String getNome() {
 		return nome;
 	}

@@ -17,6 +17,13 @@ public class Item extends EntidadeDominio{
 		this.livro = livro;
 		this.precoItem = precoCompra;
 	}
+	public Item(Integer id, Integer qtdeProdutos, BigDecimal precoCompra, String statusPedido, Livro livro) {
+		setId(id);
+		this.qtdeProdutos = qtdeProdutos;
+		this.precoItem = precoCompra;
+		this.statusPedido = statusPedido;
+		this.livro = livro;
+	}
 	public Item(Integer qtdeProdutos, BigDecimal precoCompra, String statusPedido, Livro livro) {
 		this.qtdeProdutos = qtdeProdutos;
 		this.precoItem = precoCompra;
@@ -26,15 +33,23 @@ public class Item extends EntidadeDominio{
 	public Item(Integer id) {
 		setId(id); 	
 	}
-	
+	public Item(Integer id, String statusPedido) {
+		setId(id); 	
+		this.statusPedido = statusPedido;
+	}
 	public Item(Integer id, Integer qtdeProdutos, Livro livro) {
 		setId(id); 	
 		this.qtdeProdutos = qtdeProdutos;
 		this.livro = livro;
 	}
-	
+	public Item(String status) {
+		this.statusPedido = status;
+	}
 	public Item() {
-		// TODO Auto-generated constructor stub
+	}
+	public Item(String status, BigDecimal preco) {
+		this.statusPedido = status;
+		this.precoItem = preco;
 	}
 	public Integer getQtdeProdutos() {
 		return qtdeProdutos;

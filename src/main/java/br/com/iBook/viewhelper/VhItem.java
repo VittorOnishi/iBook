@@ -64,14 +64,30 @@ public class VhItem implements IViewHelper {
 			return item;
 		}
 		
-		if(request.getParameter("acao").equals("VerItensPedido")){	
+		if(request.getParameter("acao").equals("VerItem")){	
 			
-			Pedido pedido = new Pedido(Integer.valueOf(request.getParameter("id")));
+			Item item = new Item(Integer.valueOf(request.getParameter("id")));
+			
+			return item;
+		}
+		
+		if(request.getParameter("acao").equals("AlterarStatus")){	
+			
+			Item item = new Item(Integer.valueOf(request.getParameter("idItem")), 
+					             request.getParameter("statusItem"));
+			return item;
+		}
+		
+		if(request.getParameter("acao").equals("SolicitarTrocaItem")) {
+			
+			Item item = new Item(Integer.valueOf(request.getParameter("idItem")), 
+		            			 request.getParameter("statusItem"));
+
+			Pedido pedido = new Pedido(Integer.valueOf(request.getParameter("idPedido")), item);
 			
 			return pedido;
-			
 		}
-	
+		
 		return null;
 	}
 

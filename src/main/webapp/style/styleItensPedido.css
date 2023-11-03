@@ -91,9 +91,16 @@ body{
     color: #FFFFFF;
 }
 
+.compras__lista{
+	padding: 2% 2% 1% 5%;
+	display: flex; 
+	flex-direction: column;
+	gap: 20px;	
+}
+
 .compras__lista__produtos{
-    padding: 2% 2% 1% 5%;
-    width: 95%;
+    padding: 5% 5% 5% 5%;
+    width: 100%;
 }
 
 .compras__lista__produtos__header{
@@ -102,7 +109,7 @@ body{
     font-size: 30px;
     font-weight: 400;
     text-align: left;
-    padding: 25px 40px;
+    padding: 10px 20px;
 }
 
 .compras__lista__produtos__produto{
@@ -112,6 +119,7 @@ body{
     border: 1px solid #000000; 
     color:#000000;
     padding: 15px 15px;
+    width: 90%;
     gap: 30px;
     font-size: 17px;
     border-radius: 15px;
@@ -172,15 +180,17 @@ body{
 
 .compras__lista__produtos__produto__trocar__produto{
     background-color: #D8D9DA;
-    justify-content: center;
-    display: flex;
-    width: 200px;
-    height: 10px;
+    display: block;
+    margin: 20px auto 0;
+    border: none;
+    cursor: pointer;
+    width: 280px;
+    height: 10px; /* Ajustei a altura para melhor visualização */
     text-align: center;
     border-radius: 15px;
     font-size: 15px;
-    font-weight: 600;
-    padding: 21.5px 21.5px;
+    font-weight: 700;
+    padding: 5px 21.5px; /* Ajustei o padding vertical para melhor visualização */
     text-decoration: none;
     color: #537FE7;
     font-family: 'Montserrat', sans-serif;
@@ -201,6 +211,26 @@ body{
 /* .compras__lista__produtos__produto__titulo__destaque{
     
 } */
+
+.compras__lista__produtos__produto__trocar__produto{
+    background-color: #D8D9DA;
+    margin: 20px auto 0;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+    height: 50px; /* Ajustei a altura para melhor visualização */
+    text-align: center;
+    border-radius: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 5px 21.5px; /* Ajustei o padding vertical para melhor visualização */
+    text-decoration: none;
+    color: #537FE7;
+    font-family: 'Montserrat', sans-serif;
+}
+.compras__lista__produtos__produto__trocar__produto:hover{
+    background-color: #9BABB8;
+}
 
 .rodape{
     padding: 10px 21.5px;

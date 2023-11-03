@@ -12,9 +12,11 @@ public class Pedido extends EntidadeDominio{
 	private static CartaoDeCredito cartao;
 	private List<Item> itensDoPedido = new ArrayList<>();
 	private static Frete frete;
+	private Item item;
 	private BigDecimal valorTotal;
 	private BigDecimal valorProdutos;
 	private LocalDate dataPedido;
+	private Cupom cupom;
 	
 	public Pedido(Integer id, LocalDate dataPedido, BigDecimal valorTotal, Endereco endereco) {
 		setId(id);
@@ -22,12 +24,42 @@ public class Pedido extends EntidadeDominio{
 		this.valorTotal = valorTotal;
 		Pedido.endereco = endereco;
 	}
+	public Pedido(Integer id, LocalDate dataPedido, BigDecimal valorTotal, Endereco endereco, Item item) {
+		setId(id);
+		this.dataPedido = dataPedido;
+		this.valorTotal = valorTotal;
+		Pedido.endereco = endereco;
+		this.item = item;
+	}
+	public Pedido(Integer id, LocalDate dataPedido, BigDecimal valorTotal, Endereco endereco, Usuario usuario) {
+		setId(id);
+		this.dataPedido = dataPedido;
+		this.valorTotal = valorTotal;
+		Pedido.endereco = endereco;
+		this.usuario = usuario;
+	}
+	public Pedido(Integer id, LocalDate dataPedido, BigDecimal valorTotal, Endereco endereco, Item item, Usuario usuario) {
+		setId(id);
+		this.dataPedido = dataPedido;
+		this.valorTotal = valorTotal;
+		Pedido.endereco = endereco;
+		this.item = item;
+		this.usuario = usuario;
+	}
 	public Pedido() {
-		// TODO Auto-generated constructor stub
 	}
 	public Pedido(Integer id) {
-		// TODO Auto-generated constructor stub
 		setId(id);
+	}
+	public Pedido(Integer id, Item item) {
+		setId(id);
+		this.item = item;
+	}
+	public Pedido(Integer id, BigDecimal valor, Item item, Usuario usuario) {
+		setId(id);
+		this.valorTotal = valor;
+		this.item = item;
+		this.usuario = usuario;
 	}
 	public Usuario getUsuario() {
 		return usuario;
@@ -82,7 +114,17 @@ public class Pedido extends EntidadeDominio{
 	public void setValorProdutos(BigDecimal valorProdutos) {
 		this.valorProdutos = valorProdutos;
 	}
-	
-	
+	public Item getItem() {
+		return item;
+	}
+	public void setItem(Item item) {
+		this.item = item;
+	}
+	public Cupom getCupom() {
+		return cupom;
+	}
+	public void setCupom(Cupom cupom) {
+		this.cupom = cupom;
+	}
 	
 }

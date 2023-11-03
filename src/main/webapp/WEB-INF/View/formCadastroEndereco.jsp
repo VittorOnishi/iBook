@@ -37,7 +37,7 @@
         </nav>  
     </header>
     
-    <a class="link__voltar" href="/iBook/controller?acao=ExibeDadosUsuario&id=${EntidadeObjeto.id}	">
+    <a class="link__voltar" href="/iBook/controller?acao=PaginaInicial">
         <img class="icone__voltar" src="./assets/botaoVoltar.png"> Voltar
     </a>
     
@@ -65,7 +65,7 @@
                 
                 <input class="cliente__cadastro__campos" type="text" name="logradouro" id="logradouro" placeholder="Logradouro" required>
                 
-                <select class="cliente__cadastro__select" name="tipoLogradouro" id="tipoLogradouro">
+                <select class="cliente__cadastro__select" name="tipoLogradouro" id="tipoLogradouro" required>
                     <option value="" disabled selected>Tipo de logradouro</option>
                     <option value= "estrada">Estrada</option>
                     <option value= "rua">Rua</option>

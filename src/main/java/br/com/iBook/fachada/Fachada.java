@@ -10,14 +10,17 @@ import java.util.Map;
 import br.com.iBook.controle.Conexao;
 import br.com.iBook.dao.BandeiraCartaoDAO;
 import br.com.iBook.dao.CartaoDeCreditoDAO;
+import br.com.iBook.dao.CupomDAO;
 import br.com.iBook.dao.EnderecoDAO;
 import br.com.iBook.dao.IDAO;
+import br.com.iBook.dao.ItemDAO;
 import br.com.iBook.dao.LivroDAO;
 import br.com.iBook.dao.PedidoDAO;
 import br.com.iBook.dao.UsuarioDAO;
 import br.com.iBook.dominio.BandeiraCartao;
 import br.com.iBook.dominio.CarrinhoDeCompras;
 import br.com.iBook.dominio.CartaoDeCredito;
+import br.com.iBook.dominio.Cupom;
 import br.com.iBook.dominio.Endereco;
 import br.com.iBook.dominio.EntidadeDominio;
 import br.com.iBook.dominio.Item;
@@ -107,6 +110,8 @@ public class Fachada implements IFachada {
 			daos.put(BandeiraCartao.class.getName(), new BandeiraCartaoDAO(connection));
 			daos.put(Livro.class.getName(), new LivroDAO(connection));
 			daos.put(Pedido.class.getName(), new PedidoDAO(connection));
+			daos.put(Item.class.getName(), new ItemDAO(connection));
+			daos.put(Cupom.class.getName(), new CupomDAO(connection));
 			
 		}
 

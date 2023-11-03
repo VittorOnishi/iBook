@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.iBook.command.CommandAdicionarAoCarrinho;
 import br.com.iBook.command.CommandAlterar;
 import br.com.iBook.command.CommandAlterarCarrinho;
+import br.com.iBook.command.CommandAlterarStatus;
 import br.com.iBook.command.CommandConsultar;
 import br.com.iBook.command.CommandConsultarItemDoCarrinho;
 import br.com.iBook.command.CommandConsultarPorId;
@@ -22,7 +23,6 @@ import br.com.iBook.command.CommandExcluir;
 import br.com.iBook.command.CommandFormCadastroUsuario;
 import br.com.iBook.command.CommandLogin;
 import br.com.iBook.command.CommandPaginaConsultaUsuario;
-import br.com.iBook.command.CommandPefil;
 import br.com.iBook.command.CommandRemoverDoCarrinho;
 import br.com.iBook.command.CommandSalvar;
 import br.com.iBook.command.CommandSalvarCartao;
@@ -36,6 +36,7 @@ import br.com.iBook.viewhelper.VhCadastrarUsuarios;
 import br.com.iBook.viewhelper.VhCartaoDeCredito;
 import br.com.iBook.viewhelper.VhConsultarPorId;
 import br.com.iBook.viewhelper.VhConsultarUsuarios;
+import br.com.iBook.viewhelper.VhCupom;
 import br.com.iBook.viewhelper.VhEndereco;
 import br.com.iBook.viewhelper.VhExcluir;
 import br.com.iBook.viewhelper.VhFormCadastroUsuarios;
@@ -44,7 +45,6 @@ import br.com.iBook.viewhelper.VhLogin;
 import br.com.iBook.viewhelper.VhPaginaConsultaClientes;
 import br.com.iBook.viewhelper.VhPaginaInicial;
 import br.com.iBook.viewhelper.VhPedido;
-import br.com.iBook.viewhelper.VhPerfilUsuario;
 
 /**
  * Servlet implementation class Controller
@@ -82,9 +82,16 @@ public class Controller extends HttpServlet {
         pages.put("VerItensPedido", "forward:paginaItensPedido.jsp");
         pages.put("ConsultarPedido", "forward:paginaPedido.jsp");
         pages.put("VerItem", "forward:paginaStatusProduto.jsp");
+        pages.put("AlterarStatus", "forward:paginaStatusProduto.jsp");
+        pages.put("AlterarStatusPedido", "forward:paginaPedido.jsp");
+        pages.put("SolicitarTrocaPedido", "forward:paginaPedido.jsp");
+        pages.put("SolicitarTrocaItem", "forward:paginaItensPedido.jsp");
+        pages.put("ConsultarCupons", "forward:paginaCupons.jsp");
+        pages.put("AdicionarCupom", "forward:paginaFormaPagamento.jsp");
         
         pages.put("formLogin", "forward:paginaLogin.jsp");
         pages.put("Login", "forward:paginaPerfil.jsp");
+        pages.put("LogOut", "forward:paginaInicial.jsp");
         
         pages.put("Perfil", "forward:paginaPerfil.jsp");
         
@@ -118,6 +125,8 @@ public class Controller extends HttpServlet {
 
         commands.put("PaginaInicial", new CommandConsultar());
         
+        commands.put("LogOut", new CommandConsultar());
+        
         commands.put("Login", new CommandLogin());
         commands.put("formLogin", new CommandLogin());
         
@@ -136,6 +145,13 @@ public class Controller extends HttpServlet {
         commands.put("PaginaConsultaUsuarios", new CommandPaginaConsultaUsuario());
         commands.put("ConsultarUsuarios", new CommandConsultar());
         commands.put("VerItensPedido", new CommandConsultarPorId());
+        commands.put("VerItem", new CommandConsultarPorId());
+        commands.put("AlterarStatus", new CommandAlterarStatus());
+        commands.put("SolicitarTrocaItem", new CommandAlterarStatus());
+        commands.put("SolicitarTrocaPedido", new CommandAlterarStatus());
+        commands.put("AlterarStatusPedido", new CommandAlterarStatus());
+        commands.put("ConsultarCupons", new CommandConsultar());
+        commands.put("AdicionarCupom", new CommandExcluir());
         
         commands.put("ExibeDadosUsuario", new CommandConsultarPorId());
         commands.put("ExibeEndereco", new CommandConsultarPorId());
@@ -171,6 +187,7 @@ public class Controller extends HttpServlet {
         
         viewHelpers.put("Login", new VhLogin());
         viewHelpers.put("formLogin", new VhLogin());
+        viewHelpers.put("LogOut", new VhLogin());
         
         viewHelpers.put("Perfil", new VhConsultarPorId());
         
@@ -190,10 +207,11 @@ public class Controller extends HttpServlet {
         viewHelpers.put("ExibeCartao", new VhConsultarPorId());
         viewHelpers.put("ExibeUsuario", new VhConsultarPorId());
         viewHelpers.put("ExibeDadosProduto", new VhConsultarPorId());
-        viewHelpers.put("VerItensPedido", new VhItem());
         viewHelpers.put("PaginaConsultaVendas", new VhPedido());
         viewHelpers.put("ConsultarPedido", new VhPedido());
-        viewHelpers.put("VerItem", new VhPedido());
+        viewHelpers.put("VerItensPedido", new VhConsultarPorId());
+        viewHelpers.put("VerItem", new VhItem());
+        viewHelpers.put("SolicitarTrocaItem", new VhItem());
         
         viewHelpers.put("Comprar", new VhItem());
         viewHelpers.put("Adicionar ao carrinho", new VhItem());
@@ -201,10 +219,15 @@ public class Controller extends HttpServlet {
         viewHelpers.put("Continuar", new VhPedido());
         viewHelpers.put("Confirmar endereco", new VhPedido());
         viewHelpers.put("Confirmar pagamento", new VhPedido());
+        viewHelpers.put("SolicitarTrocaPedido", new VhPedido());
+        viewHelpers.put("AlterarStatusPedido", new VhPedido());
         
         viewHelpers.put("AlterarUsuario", new VhAlterarUsuario());
         viewHelpers.put("AlterarCartao", new VhCartaoDeCredito());
         viewHelpers.put("AlterarEndereco", new VhEndereco());
+        viewHelpers.put("AlterarStatus", new VhItem());
+        viewHelpers.put("ConsultarCupons", new VhCupom());
+        viewHelpers.put("AdicionarCupom", new VhCupom());
         
         viewHelpers.put("ExcluirUsuario", new VhExcluir());
         viewHelpers.put("ExcluirCartao", new VhExcluir());
