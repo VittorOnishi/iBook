@@ -184,12 +184,12 @@ body{
     margin: 20px auto 0;
     border: none;
     cursor: pointer;
-    width: 280px;
+    width: 275px;
     height: 10px; /* Ajustei a altura para melhor visualização */
     text-align: center;
     border-radius: 15px;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 750;
     padding: 5px 21.5px; /* Ajustei o padding vertical para melhor visualização */
     text-decoration: none;
     color: #537FE7;

@@ -145,9 +145,10 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 		Pedido pedido = (Pedido) entidade;
 		StringBuilder sql = new StringBuilder();
 		PreparedStatement st = null;
-
+		
+		openConnection();
 		con.setAutoCommit(false);
-
+		
 		sql.append("UPDATE itens_do_pedido SET IDP_STATUS = ? WHERE IDP_PED_ID = ? ");
 		
 		if(pedido.getUsuario() == null) {
@@ -161,7 +162,9 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 				st.setString(1, pedido.getItem().getStatusPedido());
 				st.setInt(2, pedido.getId());
 				st.executeUpdate();
-			
+				
+			System.out.println(pedido.getItem().getStatusPedido());
+				
 				if(pedido.getItem().getStatusPedido().equals("TROCA REALIZADA")) {
 					CupomDAO cpnd = new CupomDAO(con);
 					
@@ -180,6 +183,7 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 		} finally {
 			try {
 				st.close();
+				con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

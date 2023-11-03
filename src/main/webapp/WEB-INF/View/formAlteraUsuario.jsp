@@ -1,17 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-<%@ page import="br.com.iBook.dominio.*" %>
-
+<%@ page contentType="text/html; charset=UTF-8" %>
 <c:url value="/controller" var="linkController"/>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<%
-  Usuario usuario = (Usuario)session.getAttribute("usuario");
-
-%>
 
 <head>
     <meta charset="UTF-8">

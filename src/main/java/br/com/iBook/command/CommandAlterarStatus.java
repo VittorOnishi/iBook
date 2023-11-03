@@ -17,14 +17,10 @@ public class CommandAlterarStatus implements ICommand {
 		Resultado rstd = new Resultado();
 		
 		if(entidade.getClass().getName().equals(Pedido.class.getName())) {
-		
-			System.out.println("teste");
 			
 			Pedido pedido = (Pedido)entidade;
 			
 			if(pedido.getItem().getId()!= null) {
-				
-				System.out.println("teste0");
 				
 				rstd.setMsg(fac.alterar(pedido.getItem()));
 			
@@ -33,10 +29,7 @@ public class CommandAlterarStatus implements ICommand {
 				return rstd;
 			
 			}else {
-				
 
-				System.out.println("teste2");
-				
 				rstd.setMsg(fac.alterar(pedido));
 				
 				Pedido pedido2 = new Pedido();
@@ -47,9 +40,6 @@ public class CommandAlterarStatus implements ICommand {
 			}
 			
 		}else {
-			
-
-			System.out.println("teste3");
 			
 			rstd.setMsg(fac.alterar(entidade));
 			
