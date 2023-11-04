@@ -12,6 +12,7 @@ import br.com.iBook.dominio.EntidadeDominio;
 import br.com.iBook.dominio.Item;
 import br.com.iBook.dominio.Livro;
 import br.com.iBook.dominio.Pedido;
+import br.com.iBook.dominio.Usuario;
 
 public class VhItem implements IViewHelper {
 
@@ -73,8 +74,12 @@ public class VhItem implements IViewHelper {
 		
 		if(request.getParameter("acao").equals("AlterarStatus")){	
 			
+			Usuario usuario = new Usuario(Integer.valueOf(request.getParameter("idUsuario")));
+			
 			Item item = new Item(Integer.valueOf(request.getParameter("idItem")), 
-					             request.getParameter("statusItem"));
+					             request.getParameter("statusItem"),
+					             new BigDecimal(request.getParameter("precoItem")),
+					             usuario);
 			return item;
 		}
 		

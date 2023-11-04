@@ -97,7 +97,7 @@ public class TestesSelenium {
 		
 		WebDriver browser = new EdgeDriver();
 		browser.navigate().to("http://localhost:8080/iBook/controller?acao=ConsultarPedido&id=110");
-		browser.navigate().to("http://localhost:8080/iBook/controller?acao=VerItensPedido&id=243");
+		browser.navigate().to("http://localhost:8080/iBook/controller?acao=VerItensPedido&id=248");
 	
         List<WebElement> solicitarTroca = browser.findElements(By.className("compras__lista__produtos__produto__trocar__produto"));
 	    solicitarTroca.get(0).click();
@@ -112,8 +112,8 @@ public class TestesSelenium {
 		WebDriver browser = new EdgeDriver();
 		browser.navigate().to("http://localhost:8080/iBook/controller?acao=Perfil&id=108");
 		browser.navigate().to("http://localhost:8080/iBook/controller?acao=PaginaConsultaVendas");
-		browser.navigate().to("http://localhost:8080/iBook/controller?acao=VerItensPedido&id=243");
-		browser.navigate().to("http://localhost:8080/iBook/controller?acao=VerItem&id=308");
+		browser.navigate().to("http://localhost:8080/iBook/controller?acao=VerItensPedido&id=248");
+		browser.navigate().to("http://localhost:8080/iBook/controller?acao=VerItem&id=329");
 		
 		 WebElement selectElement = browser.findElement(By.id("statusItem"));
 	        

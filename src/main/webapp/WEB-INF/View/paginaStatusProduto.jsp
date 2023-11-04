@@ -95,6 +95,10 @@
 				
 				<input type="hidden" name="idItem" id="idItem" value="${EntidadeObjeto.item.id}">
 				
+				<input type="hidden" name="idUsuario" id="idUsuario" value="${EntidadeObjeto.item.usuario.id}">
+				
+				<input type="hidden" name="precoItem" id="precoItem" value="${EntidadeObjeto.item.precoItem}">
+				
 				<button class="status__alterar" type="submit" name="acao" id="acao" value="AlterarStatus">
 					Alterar Status
 				</button>

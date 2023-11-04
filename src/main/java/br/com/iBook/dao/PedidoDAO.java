@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.iBook.controle.Conexao;
 import br.com.iBook.dominio.CarrinhoDeCompras;
 import br.com.iBook.dominio.Cidade;
 import br.com.iBook.dominio.Endereco;
@@ -163,9 +164,8 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 				st.setInt(2, pedido.getId());
 				st.executeUpdate();
 				
-			System.out.println(pedido.getItem().getStatusPedido());
-				
 				if(pedido.getItem().getStatusPedido().equals("TROCA REALIZADA")) {
+					
 					CupomDAO cpnd = new CupomDAO(con);
 					
 					cpnd.salvar(pedido);

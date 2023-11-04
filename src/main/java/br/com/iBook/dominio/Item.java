@@ -11,6 +11,7 @@ public class Item extends EntidadeDominio{
 	private BigDecimal precoItem;
 	private String statusPedido;
 	private List<Item> listaDeItens = new ArrayList<>();
+	private Usuario usuario;
 	
 	public Item(Integer qtdeProdutos, Livro livro, BigDecimal precoCompra) {
 		this.qtdeProdutos = qtdeProdutos;
@@ -24,6 +25,14 @@ public class Item extends EntidadeDominio{
 		this.statusPedido = statusPedido;
 		this.livro = livro;
 	}
+	public Item(Integer id, Integer qtdeProdutos, BigDecimal precoCompra, String statusPedido, Livro livro, Usuario usuario) {
+		setId(id);
+		this.qtdeProdutos = qtdeProdutos;
+		this.precoItem = precoCompra;
+		this.statusPedido = statusPedido;
+		this.livro = livro;
+		this.usuario = usuario;
+	}
 	public Item(Integer qtdeProdutos, BigDecimal precoCompra, String statusPedido, Livro livro) {
 		this.qtdeProdutos = qtdeProdutos;
 		this.precoItem = precoCompra;
@@ -36,6 +45,12 @@ public class Item extends EntidadeDominio{
 	public Item(Integer id, String statusPedido) {
 		setId(id); 	
 		this.statusPedido = statusPedido;
+	}
+	public Item(Integer id, String statusPedido, BigDecimal preco, Usuario usuario) {
+		setId(id); 	
+		this.statusPedido = statusPedido;
+		this.precoItem = preco;
+		this.usuario = usuario;
 	}
 	public Item(Integer id, Integer qtdeProdutos, Livro livro) {
 		setId(id); 	
@@ -85,6 +100,12 @@ public class Item extends EntidadeDominio{
 	}
 	public void setListaDeItens(Item item) {
 		this.listaDeItens.add(item);
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	

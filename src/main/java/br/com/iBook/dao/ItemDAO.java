@@ -56,6 +56,13 @@ public class ItemDAO extends AbstractDAO implements IDAO{
 			st.setInt(2, item.getId());
 			st.executeUpdate();
 			
+			if(item.getStatusPedido().equals("TROCA REALIZADA")) {
+				
+				CupomDAO cpnd = new CupomDAO(con);
+				
+				cpnd.salvar(item);
+			}
+			
 			con.commit();
 			
 		}catch (Exception e) {
@@ -85,6 +92,7 @@ public class ItemDAO extends AbstractDAO implements IDAO{
 		Endereco endereco = null;
 		Cidade cidade = null;
 		Estado estado = null;
+		Usuario usuario = null;
 
 		
 		PreparedStatement st = null;
@@ -94,12 +102,13 @@ public class ItemDAO extends AbstractDAO implements IDAO{
 
 		StringBuilder sql = new StringBuilder();
 
-		sql.append("SELECT ped_id, ped_data, idp_id, lvr_id, lvr_titulo, lvr_cod_image, idp_qtde_produtos, ");
+		sql.append("SELECT usu_id, ped_id, ped_data, idp_id, lvr_id, lvr_titulo, lvr_cod_image, idp_qtde_produtos, ");
 		sql.append("ped_frete_valor, ped_valor, end_logradouro, end_numero, end_bairro, end_cidade, end_estado, ");
 		sql.append("idp_valor, idp_status FROM itens_do_pedido ");
 		sql.append("INNER JOIN LIVROS on lvr_id = idp_lvr_id ");
 		sql.append("INNER JOIN PEDIDOS on idp_ped_id = ped_id ");
 		sql.append("INNER JOIN ENDERECOS on ped_end_id = end_id ");
+		sql.append("INNER JOIN USUARIOS on ped_usu_id = usu_id ");
 		sql.append("WHERE idp_id = ?");
 		
 		try{
@@ -113,6 +122,8 @@ public class ItemDAO extends AbstractDAO implements IDAO{
 			
 			while (rs.next()) {
 				
+				usuario = new Usuario(rs.getInt("usu_id"));
+				
 				livro = new Livro(rs.getInt("lvr_id"), 
 						          rs.getString("lvr_titulo"), 
 						          rs.getString("lvr_cod_image"));
@@ -121,7 +132,8 @@ public class ItemDAO extends AbstractDAO implements IDAO{
 								rs.getInt("idp_qtde_produtos"), 
 								rs.getBigDecimal("idp_valor"),
 								rs.getString("idp_status"),
-								livro);
+								livro, 
+								usuario);
 				
 				estado = new Estado(rs.getString("end_estado"));
 				
