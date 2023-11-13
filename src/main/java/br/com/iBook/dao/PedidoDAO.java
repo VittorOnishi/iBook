@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.iBook.controle.Conexao;
 import br.com.iBook.dominio.CarrinhoDeCompras;
 import br.com.iBook.dominio.Cidade;
+import br.com.iBook.dominio.Cupom;
 import br.com.iBook.dominio.Endereco;
 import br.com.iBook.dominio.EntidadeDominio;
 import br.com.iBook.dominio.Estado;
@@ -112,11 +112,17 @@ public class PedidoDAO extends AbstractDAO implements IDAO {
 
 			}
 			
+			//limpando atributos estaticos
 			CarrinhoDeCompras cdc = new CarrinhoDeCompras();
-			
 			cdc.getItens().clear();
 			cdc.setValorCarrinho(new BigDecimal(0));
+			
 			pedido.setId(null);
+			pedido.setEndereco(null);
+			pedido.setCartao(null);
+			
+			Cupom cupom = new Cupom();
+			cupom.getCupons().clear();
 			
 		}catch (Exception e) {
 			try {

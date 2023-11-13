@@ -29,17 +29,13 @@
 		</form>
 
 		<nav class="cabecalho__menu">
-			<a class="cabecalho__menu__link" href="telaCarrinho.html"> <img
-				class="cabecalho__menu__icones" src="./assets/carrinho.png"
-				alt="Carrinho"> Carrinho
-			</a> <a class="cabecalho__menu__link" href="telaDePedidos.html"> <img
-				class="cabecalho__menu__icones" src="./assets/sacola.png"
-				alt="Sacola">Compras
-			</a> <a class="cabecalho__menu__link" href="telaPerfil.html"> <img
-				class="cabecalho__menu__icones" src="./assets/perfil.png"
-				alt="Perfil">Perfil
-			</a>
-		</nav>
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=Carrinho">
+                <img class="cabecalho__menu__icones" src="./assets/carrinho.png" alt="Carrinho"> Carrinho</a>
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=ConsultarPedido&id=110">
+                <img class="cabecalho__menu__icones" src="./assets/sacola.png" alt="Sacola">Compras</a>
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=formLogin">
+                    <img class="cabecalho__menu__icones" src="./assets/perfil.png" alt="Perfil">Perfil</a>
+        </nav>  
 	</header>
 
 	<a class="link__voltar" href="/iBook/controller?acao=Login"> <img
@@ -62,7 +58,7 @@
 						<option value="Masculino">Masculino</option>
 						<option value="Feminino">Feminino</option>
 						<option value="Não Especificado">Não Especificado</option>
-					</select> <input class="cliente__cadastro__campos" type="text"
+					</select> <input class="cliente__cadastro__campos" type="date"
 						name="dataNasc" id="dataNasc" pattern="\d{2}/\d{2}/\d{4}"
 						placeholder="Data de nascimento" required> <input
 						class="cliente__cadastro__campos" type="text" name="cpf" id="cpf"
@@ -92,7 +88,7 @@
 					<h2 class="cliente__cadastro__titulo">CARTAO DE CRÉDITO</h2>
 
 					<input class="cliente__cadastro__campos" type="text"
-						name="nrCartao" id="nrCartao" placeholder="Numero do cartão"
+						name="nrCartao" id="nrCartao" placeholder="Numero do cartão" maxlength="12"
 						required> <select class="cliente__cadastro__select"
 						id="bandeiraCartao" name="bandeiraCartao" required>
 						<option value="" disabled selected>Bandeira</option>

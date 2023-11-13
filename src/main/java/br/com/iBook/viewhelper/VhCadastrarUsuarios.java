@@ -42,14 +42,16 @@ public class VhCadastrarUsuarios implements IViewHelper{
 		if(request.getParameter("senha").equals(request.getParameter("senhaConfirmacao"))) {
 			Login login = new Login(request.getParameter("e-mail"), request.getParameter("senha"));
 			
-			String paramDataNascimento = request.getParameter("dataNasc");
-			Date dataNasc = null;
-			try {
-				SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-				dataNasc = sdf.parse(paramDataNascimento);
-			} catch (ParseException e) {
-				throw new ServletException(e);
-			}
+			   String paramData = request.getParameter("dataNasc"); // Substitua isso pela sua string de data
+
+			   Date dataNasc = null;
+			   
+		        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		        try {
+		            dataNasc = dateFormat.parse(paramData);
+		        } catch (ParseException e) {
+		            e.printStackTrace();
+		        }
 		
 			Pais paisResidencial = new Pais(request.getParameter("paisResidencial"));
 	
@@ -106,7 +108,6 @@ public class VhCadastrarUsuarios implements IViewHelper{
 						request.getParameter("nomeCartao"),
 						request.getParameter("codigoSegCartao"),
 						bandeiraCartao);
-				System.out.println("teste");
 				
 				usuario.setListadeCartoes(cartao);
 				}

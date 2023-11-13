@@ -22,6 +22,7 @@ import br.com.iBook.command.CommandConsultarPorId;
 import br.com.iBook.command.CommandExcluir;
 import br.com.iBook.command.CommandFormCadastroUsuario;
 import br.com.iBook.command.CommandLogin;
+import br.com.iBook.command.CommandMontaGrafico;
 import br.com.iBook.command.CommandPaginaConsultaUsuario;
 import br.com.iBook.command.CommandRemoverDoCarrinho;
 import br.com.iBook.command.CommandSalvar;
@@ -40,6 +41,7 @@ import br.com.iBook.viewhelper.VhCupom;
 import br.com.iBook.viewhelper.VhEndereco;
 import br.com.iBook.viewhelper.VhExcluir;
 import br.com.iBook.viewhelper.VhFormCadastroUsuarios;
+import br.com.iBook.viewhelper.VhGrafico;
 import br.com.iBook.viewhelper.VhItem;
 import br.com.iBook.viewhelper.VhLogin;
 import br.com.iBook.viewhelper.VhPaginaConsultaClientes;
@@ -120,6 +122,10 @@ public class Controller extends HttpServlet {
         pages.put("ExcluirCartao", "forward:paginaConsultaUsuario.jsp");
         pages.put("ExcluirEndereco", "forward:paginaConsultaUsuario.jsp");
         
+        pages.put("AnaliseVendas", "forward:paginaGrafico.jsp");
+        pages.put("GerarGrafico", "forward:paginaGrafico.jsp");
+        
+        
 
         // Mapear os comandos e view helpers correspondentes
 
@@ -181,6 +187,9 @@ public class Controller extends HttpServlet {
         commands.put("ExcluirCartao", new CommandExcluir());
         commands.put("ExcluirEndereco", new CommandExcluir());
         
+        commands.put("AnaliseVendas", new CommandMontaGrafico());
+        commands.put("GerarGrafico", new CommandMontaGrafico());
+        
         
           
         viewHelpers.put("PaginaInicial", new VhPaginaInicial());
@@ -235,6 +244,10 @@ public class Controller extends HttpServlet {
         viewHelpers.put("RemoverDoCarrinho", new VhItem());
         viewHelpers.put("AlterarCarrinho", new VhItem());
         viewHelpers.put("VisualizarItemDoCarrinho", new VhItem());
+        
+        viewHelpers.put("AnaliseVendas", new VhGrafico());
+        viewHelpers.put("GerarGrafico", new VhGrafico());
+   
     }
 
     protected void service(HttpServletRequest request, HttpServletResponse response)

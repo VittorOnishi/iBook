@@ -28,11 +28,11 @@
         </form>
 
         <nav class="cabecalho__menu">
-            <a class="cabecalho__menu__link" href="telaCarrinho.html">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=Carrinho">
                 <img class="cabecalho__menu__icones" src="./assets/carrinho.png" alt="Carrinho"> Carrinho</a>
-            <a class="cabecalho__menu__link" href="telaDePedidos.html">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=ConsultarPedido&id=110">
                 <img class="cabecalho__menu__icones" src="./assets/sacola.png" alt="Sacola">Compras</a>
-            <a class="cabecalho__menu__link" href="telaPerfil.html">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=formLogin">
                     <img class="cabecalho__menu__icones" src="./assets/perfil.png" alt="Perfil">Perfil</a>
         </nav>  
     </header>
@@ -61,7 +61,7 @@
                 
                 <input class="cliente__cadastro__campos" type="text" name="nomeCliente" id="nomeCliente" value="${EntidadeObjeto.nome}" placeholder="Nome" required>
                 
-                <input class="cliente__cadastro__campos" type="text" name="dataNasc" id="dataNasc" value="<fmt:formatDate value="${EntidadeObjeto.dataNasc}" pattern="dd/MM/yyyy"/>" pattern="\d{2}/\d{2}/\d{4}" placeholder="Data de nascimento" required>
+                <input class="cliente__cadastro__campos" type="date" name="dataNasc" id="dataNasc" value="${EntidadeObjeto.dataNasc}" placeholder="Data de nascimento" required>
                 
                 <input class="cliente__cadastro__campos" type="text" name="cpf" id="cpf" value="${EntidadeObjeto.cpf}" placeholder="CPF" required>
                 

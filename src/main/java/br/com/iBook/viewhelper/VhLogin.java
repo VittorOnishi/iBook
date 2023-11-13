@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import br.com.iBook.dominio.EntidadeDominio;
 import br.com.iBook.dominio.Livro;
 import br.com.iBook.dominio.Login;
+import br.com.iBook.dominio.Pedido;
 import br.com.iBook.dominio.Usuario;
 
 public class VhLogin implements IViewHelper {
@@ -55,6 +56,15 @@ public class VhLogin implements IViewHelper {
 	@Override
 	public void setView(EntidadeDominio entDom, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
+		
+		if (request.getParameter("acao").equals("PaginaInicial")
+	        ||request.getParameter("acao").equals("Carrinho")) {
+			Pedido pedido = new Pedido();
+			pedido.setId(null);
+			pedido.setEndereco(null);
+			pedido.setCartao(null);
+		}
+		
 		if(request.getParameter("acao").equals("Continuar") ||
 		   request.getParameter("acao").equals("CadastrarEndereco") ||
 		   request.getParameter("acao").equals("CadastrarCartao") ||

@@ -31,17 +31,13 @@
 		</form>
 
 		<nav class="cabecalho__menu">
-			<a class="cabecalho__menu__link" href="telaCarrinho.html"> <img
-				class="cabecalho__menu__icones" src="./assets/carrinho.png"
-				alt="Carrinho"> Carrinho
-			</a> <a class="cabecalho__menu__link" href="telaDePedidos.html"> <img
-				class="cabecalho__menu__icones" src="./assets/sacola.png"
-				alt="Sacola">Compras
-			</a> <a class="cabecalho__menu__link" href="telaPerfil.html"> <img
-				class="cabecalho__menu__icones" src="./assets/perfil.png"
-				alt="Perfil">Perfil
-			</a>
-		</nav>
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=Carrinho">
+                <img class="cabecalho__menu__icones" src="./assets/carrinho.png" alt="Carrinho"> Carrinho</a>
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=ConsultarPedido&id=110">
+                <img class="cabecalho__menu__icones" src="./assets/sacola.png" alt="Sacola">Compras</a>
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=formLogin">
+                    <img class="cabecalho__menu__icones" src="./assets/perfil.png" alt="Perfil">Perfil</a>
+        </nav>  
 	</header>
 	<a class="link__voltar" href="/iBook/controller?acao=VerItensPedido&id=${EntidadeObjeto.id}"> <img
 		class="icone__voltar" src="./assets/botaoVoltar.png"> Voltar

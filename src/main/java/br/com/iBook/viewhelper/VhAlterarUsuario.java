@@ -26,7 +26,7 @@ public class VhAlterarUsuario implements IViewHelper {
 		String paramDataNascimento = request.getParameter("dataNasc");
 		Date dataNasc = null;
 		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			dataNasc = sdf.parse(paramDataNascimento);
 		} catch (ParseException e) {
 			throw new ServletException(e);

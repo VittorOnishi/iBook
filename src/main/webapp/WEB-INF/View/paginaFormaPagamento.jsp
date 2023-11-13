@@ -27,11 +27,11 @@
         </form>
 
         <nav class="cabecalho__menu">
-            <a class="cabecalho__menu__link" href="telaCarrinho.html">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=Carrinho">
                 <img class="cabecalho__menu__icones" src="./assets/carrinho.png" alt="Carrinho"> Carrinho</a>
-            <a class="cabecalho__menu__link" href="telaDePedidos.html">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=ConsultarPedido&id=110">
                 <img class="cabecalho__menu__icones" src="./assets/sacola.png" alt="Sacola">Compras</a>
-            <a class="cabecalho__menu__link" href="telaPerfil.html">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=formLogin">
                     <img class="cabecalho__menu__icones" src="./assets/perfil.png" alt="Perfil">Perfil</a>
         </nav>  
     </header>
@@ -88,6 +88,7 @@
 				<input type="hidden" id="pedidoEnderecoId" name="pedidoEnderecoId" value="${pedidoEnderecoId}">
 				<input type="hidden" id="valorProdutos" name="valorProdutos" value="${valorProdutos - valorCupons}">
 				<input type="hidden" id="valorFrete" name="valorFrete" value="${valorFrete}">
+				<input type="hidden" id="valorCupons" name="valorCupons" value="${valorCupons}">
 				<!--<input type="hidden" id="valorTotal" name="valorTotal" value="${valorTotal}">-->
 				<input type="hidden" id="idUsuario" name="idUsuario" value="${usuarioLogado.id}">
                 <input class="pagamento__selecao__confirmar" id="acao" name="acao" type="submit" value="Confirmar pagamento">

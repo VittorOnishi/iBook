@@ -1,5 +1,7 @@
 package br.com.iBook.viewhelper;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -47,16 +49,24 @@ public class VhPedido implements IViewHelper {
 		
 		if(request.getParameter("acao").equals("Confirmar endereco")) {
 			
-			Endereco endereco = new Endereco(Integer.valueOf(request.getParameter("idEndereco")));
-					
-			pedido.setEndereco(endereco);
+			if(request.getParameter("idEndereco") != null && !request.getParameter("idEndereco").isEmpty()) {
+				Endereco endereco = new Endereco(Integer.valueOf(request.getParameter("idEndereco")));
+				pedido.setEndereco(endereco);
+			}else {
+				PrintWriter out = null;
+				try {
+					out = response.getWriter();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		out.print("É preciso selecionar um endereço de entrega");
+			}
 			
 			return null;
 		}
 		
 		if(request.getParameter("acao").equals("Confirmar pagamento")) {
-			
-			CartaoDeCredito cartao = new CartaoDeCredito(Integer.valueOf(request.getParameter("idCartao")));
 			
 			CarrinhoDeCompras cdc = new CarrinhoDeCompras();
 			
@@ -72,12 +82,31 @@ public class VhPedido implements IViewHelper {
 			pedido.setDtCadastro(LocalDate.now());
 			
 			pedido.setListaItens(cdc.getItens());
-				
+			
+//			BigDecimal desconto = new BigDecimal(request.getParameter("valorFrete"));
+//			
+//			for(Item item : pedido.getListaItens()) {
+//				
+//				item.getPrecoItem().subtract(desconto);
+//				
+//			}
+			
 			pedido.setValorProdutos(new BigDecimal(request.getParameter("valorProdutos")));
 			
-			pedido.setCartao(cartao);
+			if (request.getParameter("idCartao") != null && !request.getParameter("idCartao").isEmpty()) {
+				CartaoDeCredito cartao = new CartaoDeCredito(Integer.valueOf(request.getParameter("idCartao")));
+				pedido.setCartao(cartao);
+				return pedido;
+			} else {
+				PrintWriter out = null;
+				try {
+					out = response.getWriter();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				out.print("É preciso selecionar um método de pagamento");
+			}
 			
-			return pedido;
 		}
 		
 		if(request.getParameter("acao").equals("PaginaConsultaVendas")) {

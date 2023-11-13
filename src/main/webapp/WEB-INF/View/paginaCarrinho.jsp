@@ -94,7 +94,7 @@
 						value="${valorTotal + item.precoItem}" scope="page" />
 						
 					<c:set var="contadorElementosLista"
-						value="${contadorElementosLista + item.qtdeProdutos}" scope="page" />
+						value="${contadorElementosLista + 1}" scope="page" />
                     
                     </c:forEach>
                    

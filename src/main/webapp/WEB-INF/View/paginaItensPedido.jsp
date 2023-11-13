@@ -32,11 +32,11 @@
         <nav class="cabecalho__menu">
             <a class="cabecalho__menu__link" href="/iBook/controller?acao=Carrinho">
                 <img class="cabecalho__menu__icones" src="./assets/carrinho.png" alt="Carrinho"> Carrinho</a>
-            <a class="cabecalho__menu__link" href="/iBook/controller?acao=PaginaConsultaVendas&id=110">
+            <a class="cabecalho__menu__link" href="/iBook/controller?acao=ConsultarPedido&id=110">
                 <img class="cabecalho__menu__icones" src="./assets/sacola.png" alt="Sacola">Compras</a>
             <a class="cabecalho__menu__link" href="/iBook/controller?acao=formLogin">
                     <img class="cabecalho__menu__icones" src="./assets/perfil.png" alt="Perfil">Perfil</a>
-        </nav> 
+        </nav>  
     </header>
     <main class="compras">
 	

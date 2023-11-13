@@ -12,6 +12,7 @@ import br.com.iBook.dao.BandeiraCartaoDAO;
 import br.com.iBook.dao.CartaoDeCreditoDAO;
 import br.com.iBook.dao.CupomDAO;
 import br.com.iBook.dao.EnderecoDAO;
+import br.com.iBook.dao.GraficoDAO;
 import br.com.iBook.dao.IDAO;
 import br.com.iBook.dao.ItemDAO;
 import br.com.iBook.dao.LivroDAO;
@@ -23,6 +24,7 @@ import br.com.iBook.dominio.CartaoDeCredito;
 import br.com.iBook.dominio.Cupom;
 import br.com.iBook.dominio.Endereco;
 import br.com.iBook.dominio.EntidadeDominio;
+import br.com.iBook.dominio.Grafico;
 import br.com.iBook.dominio.Item;
 import br.com.iBook.dominio.Livro;
 import br.com.iBook.dominio.Login;
@@ -220,6 +222,21 @@ public class Fachada implements IFachada {
 					return entDom;	
 				}
 				return null;
+		}
+		
+		public EntidadeDominio consultaGrafico(EntidadeDominio entidade) {
+
+			Conexao conn = new Conexao();
+			Connection connection = conn.recuperarConexao();
+			GraficoDAO gDao = new GraficoDAO(connection);
+			EntidadeDominio grafico = new EntidadeDominio();
+			try {
+				grafico = gDao.consultaGrafico(entidade);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return grafico;
+
 		}
 		
 		public String adicionarItemAoCarrinho(EntidadeDominio entidade) {
