@@ -93,7 +93,14 @@ public class GraficoDAO extends AbstractDAO implements IDAO {
 		                
 		                String categoria = rs.getString("lvr_categoria");
 		                
-		                BigDecimal quantidade = rs.getBigDecimal("valor_produtos");
+		                BigDecimal quantidade = null;
+		                
+						if (rs.getBigDecimal("valor_produtos") != new BigDecimal(0.00)
+								&& rs.getBigDecimal("valor_produtos") != null) {
+							quantidade = rs.getBigDecimal("valor_produtos");
+						} else {
+							quantidade = new BigDecimal(0.00);
+						}
 		                
 		                if(dados.keySet().contains(data)) {
 		                    Map<String, BigDecimal> categoriaQuantidade = dados.get(data);

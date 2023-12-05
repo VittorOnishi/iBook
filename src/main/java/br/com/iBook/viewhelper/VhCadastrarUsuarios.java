@@ -33,6 +33,7 @@ public class VhCadastrarUsuarios implements IViewHelper{
 	@Override
 	public void setView(EntidadeDominio entDom, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
+		request.setAttribute("EntidadeObjeto", entDom);
 		
 	}
 

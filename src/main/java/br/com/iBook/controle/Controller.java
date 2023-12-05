@@ -25,10 +25,10 @@ import br.com.iBook.command.CommandLogin;
 import br.com.iBook.command.CommandMontaGrafico;
 import br.com.iBook.command.CommandPaginaConsultaUsuario;
 import br.com.iBook.command.CommandRemoverDoCarrinho;
-import br.com.iBook.command.CommandSalvar;
 import br.com.iBook.command.CommandSalvarCartao;
 import br.com.iBook.command.CommandSalvarCompra;
 import br.com.iBook.command.CommandSalvarEndereco;
+import br.com.iBook.command.CommandSalvarUsuario;
 import br.com.iBook.command.ICommand;
 import br.com.iBook.dominio.EntidadeDominio;
 import br.com.iBook.viewhelper.IViewHelper;
@@ -139,7 +139,7 @@ public class Controller extends HttpServlet {
         commands.put("Perfil", new CommandConsultarPorId());
         
         commands.put("formCadastroUsuario", new CommandFormCadastroUsuario());
-        commands.put("CadastrarUsuario", new CommandSalvar());
+        commands.put("CadastrarUsuario", new CommandSalvarUsuario());
         
         commands.put("CadastrarEndereco", new CommandSalvarEndereco());
         

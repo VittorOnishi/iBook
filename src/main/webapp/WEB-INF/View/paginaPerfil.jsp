@@ -42,7 +42,7 @@
 	</a>
 
 	<main class="perfil">
-
+	
 		<div class="perfil__link">
 			<img class="perfil__imagem" src="./assets/perfil.png" alt="">
 			<p>${usuarioLogado.nome}

@@ -68,7 +68,8 @@ public class VhLogin implements IViewHelper {
 		if(request.getParameter("acao").equals("Continuar") ||
 		   request.getParameter("acao").equals("CadastrarEndereco") ||
 		   request.getParameter("acao").equals("CadastrarCartao") ||
-		   request.getParameter("acao").equals("Perfil")) {
+		   request.getParameter("acao").equals("Perfil")||
+		   request.getParameter("acao").equals("CadastrarUsuario")) {
 			
 			System.out.println("inciando sessão");
 			Usuario usuario = (Usuario)entDom;

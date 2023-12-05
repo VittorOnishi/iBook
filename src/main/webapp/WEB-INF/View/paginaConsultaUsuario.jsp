@@ -50,7 +50,7 @@
         
         <input type="hidden" name="acao" value="ConsultarUsuarios">
         
-        <button class="botao__pesquisar" type="submit">
+        <button id="botao_busca_clientes" class="botao__pesquisar" type="submit">
             <img class="botao__pesquisar__lupa" src="./assets/pesquisar.png" alt="Pesquisar">
         </button>
         
@@ -83,10 +83,10 @@
         </div>
 
         <div class="perfil__informacoes__container__acoes">
-            <a class="perfil__acoes__excluir" href="/iBook/controller?acao=ExcluirUsuario&id=${cliente.id}">   
+            <a id="excluirCliente" class="perfil__acoes__excluir" href="/iBook/controller?acao=ExcluirUsuario&id=${cliente.id}">   
                 Excluir conta
             </a>
-            <a class="perfil__acoes__alterar" href="/iBook/controller?acao=ExibeDadosUsuario&id=${cliente.id}">   
+            <a id="visualizarDadosCliente" class="perfil__acoes__alterar" href="/iBook/controller?acao=ExibeDadosUsuario&id=${cliente.id}">   
                 Ver dados
             </a>
         </div>

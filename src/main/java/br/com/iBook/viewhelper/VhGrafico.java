@@ -14,14 +14,17 @@ import br.com.iBook.dominio.Grafico;
 
 public class VhGrafico implements IViewHelper {
 
+	private static String dtInicio;
+	private static String dtFim;
+	
 	@Override
 	public EntidadeDominio getEntidade(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
 		// TODO Auto-generated method stub
 
-		String dtInicio = request.getParameter("dtInicio");
-		String dtFim = request.getParameter("dtFim");
-
+		dtInicio = request.getParameter("dtInicio");
+		dtFim = request.getParameter("dtFim");
+		
 		if (dtInicio != null && dtFim != null && !dtInicio.isEmpty() && !dtFim.isEmpty()) {
 
 			Grafico grafico = new Grafico(dtInicio, dtFim);
@@ -86,6 +89,8 @@ public class VhGrafico implements IViewHelper {
 			request.setAttribute("txtLabels", txtLabels);
 
 		}
+		request.setAttribute("dtInicioPesquisada", dtInicio);
+		request.setAttribute("dtFimPesquisada", dtFim);
 	}
 
 }

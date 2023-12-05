@@ -92,7 +92,7 @@
 			
                 <div>
                 	<input type="hidden" name="acao" value="AlterarUsuario">
-                    <input class="cliente__cadastro__cadastrar" type="submit" value="Atualizar">
+                    <input id="atualizarDadosCliente" class="cliente__cadastro__cadastrar" type="submit" value="Atualizar">
                 </div>
             </form>
 

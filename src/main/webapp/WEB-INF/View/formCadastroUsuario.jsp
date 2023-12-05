@@ -203,7 +203,7 @@
 						id="cepEntrega" placeholder="CEP" pattern="\d{5}-\d{3}" required>
 
 					<input class="cliente__cadastro__campos" type="text"
-						name="cidadeEntrega" id="cidade" placeholder="Cidade" required>
+						name="cidadeEntrega" id="cidadeEntrega" placeholder="Cidade" required>
 
 					<select class="cliente__cadastro__select" id="estadoEntrega"
 						name="estadoEntrega" required>

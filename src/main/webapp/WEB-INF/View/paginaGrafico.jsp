@@ -53,7 +53,7 @@
          <div class="">
 		    <label for="dtInicio" class="calendario_label">Data Inicio</label>
 		    <div class="">
-		      <input type="date" class="pagina__grafico__inputs" id="dtInicio" name="dtInicio" >
+		      <input type="date" class="pagina__grafico__inputs" id="dtInicio" name="dtInicio" value="${dtInicioPesquisada}">
 		    </div>
 		  </div>
       
@@ -62,7 +62,7 @@
         <div class="">
 		    <label for="dtFim" class="calendario_label">Data Fim</label>
 		    <div class="">
-		      <input type="date" class="pagina__grafico__inputs" id="dtFim" name="dtFim" >
+		      <input type="date" class="pagina__grafico__inputs" id="dtFim" name="dtFim" value="${dtFimPesquisada}">
 		    </div>
 		  </div>
       

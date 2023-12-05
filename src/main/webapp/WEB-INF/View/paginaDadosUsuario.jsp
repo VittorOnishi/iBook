@@ -68,7 +68,7 @@
         </div>
 
         <div class="perfil__informacoes__container__acoes">
-            <a class="perfil__acoes__alterar" href="/iBook/controller?acao=ExibeUsuario&id=${EntidadeObjeto.id}">   
+            <a id="alterarDadosCliente" class="perfil__acoes__alterar" href="/iBook/controller?acao=ExibeUsuario&id=${EntidadeObjeto.id}">   
                 Alterar dados
             </a>
         </div>

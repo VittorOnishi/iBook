@@ -80,9 +80,9 @@
                             
 							<div class="carrinho__produtos__acoes">
                             
-                            <a class="carrinho__produtos__excluir" href="/iBook/controller?acao=RemoverDoCarrinho&id=${item.id}">Excluir</a>
+                            <a id="excluirDoCarrinho" class="carrinho__produtos__excluir" href="/iBook/controller?acao=RemoverDoCarrinho&id=${item.id}">Excluir</a>
                             
-                            <a class="carrinho__produtos__alterar" href="/iBook/controller?acao=VisualizarItemDoCarrinho&id=${item.id}">Alterar</a>
+                            <a id="alterarDoCarrinho" class="carrinho__produtos__alterar" href="/iBook/controller?acao=VisualizarItemDoCarrinho&id=${item.id}">Alterar</a>
                            
                             <!--<button class="carrinho__produtos__alterar" type="submit" name="acao" id="acao" value="AlterarCarrinho">Alterar</button> -->
                      	

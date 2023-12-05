@@ -9,17 +9,15 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.iBook.command.CommandSalvarUsuario;
 import br.com.iBook.dominio.BandeiraCartao;
 import br.com.iBook.dominio.CartaoDeCredito;
 import br.com.iBook.dominio.Cidade;
 import br.com.iBook.dominio.Endereco;
 import br.com.iBook.dominio.EntidadeDominio;
 import br.com.iBook.dominio.Estado;
-import br.com.iBook.dominio.Item;
-import br.com.iBook.dominio.Livro;
 import br.com.iBook.dominio.Login;
 import br.com.iBook.dominio.Pais;
-import br.com.iBook.dominio.Pedido;
 import br.com.iBook.dominio.Telefone;
 import br.com.iBook.dominio.Usuario;
 
@@ -61,6 +59,8 @@ public class UsuarioDAO extends AbstractDAO implements IDAO {
 			while (rs.next()) {
 				
 				int idCliente = rs.getInt(1);
+				
+				CommandSalvarUsuario.setIdCliente(idCliente);
 				
 				usuario.setId(idCliente);
 				
